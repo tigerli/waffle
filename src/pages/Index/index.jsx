@@ -1,14 +1,28 @@
 import React from 'react';
-import { Button } from 'antd';
-import { useHistory, useLocation} from 'react-router-dom'
-
-function Index(props) {
+import { Link, useHistory, Route} from 'react-router-dom'
+import A from '@pages/Index/Demo/A'
+import B from '@pages/Index/Demo/B'
+function Index() {
   let history = useHistory();
-  let location = useLocation();
-  console.log(history, location)
+  let a = 'a1';
+  if(a !== 'a'){
+    history.push("/login");
+  }
+
   return (
     <div className="App">
-        <Button type="primary">Index</Button>
+      <ul style={{ listStyleType: "none", padding: 0 }}>
+        <li>
+          <Link to='/index/a'>A</Link>
+        </li>
+        <li>
+          <Link to='/index/b'>B</Link>
+        </li>
+      </ul>
+      <div style={{ flex: 1, padding: "10px", background:'#ABC' }}>
+          <Route path="/index/a" component={A} />
+          <Route path="/index/b" component={B} />
+        </div>
     </div>
   );
 }

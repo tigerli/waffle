@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, useHistory, useLocation} from 'react-router-dom'
+import {Route, Switch, Redirect, useHistory, useLocation} from 'react-router-dom'
 import Index from '@pages/Index';
 import Login from '@pages/Login';
 function App(props) {
@@ -9,8 +9,9 @@ function App(props) {
   return (
     <>
       <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/index/" component={Index} />
+        <Route path="/index" component={Index} />
+        <Route path="/login" exact component={Login} />
+        <Redirect to="/index"/> 
       </Switch>
     </>
   );
