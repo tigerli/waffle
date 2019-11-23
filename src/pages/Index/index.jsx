@@ -1,10 +1,12 @@
-import React from 'react';
-import { Link, useHistory, Route} from 'react-router-dom'
-import A from '@pages/Index/Demo/A'
-import B from '@pages/Index/Demo/B'
+import React, {Suspense} from 'react';
+import { Link, withRouter, useHistory, useLocation, Route} from 'react-router-dom'
+const A = React.lazy(() => import("@pages/Index/Demo/A"));
+const B = React.lazy(() => import("@pages/Index/Demo/B"));
 function Index() {
   let history = useHistory();
-  let a = 'a1';
+  let location = useLocation();
+  console.log(history, location)
+  let a = 'a';
   if(a !== 'a'){
     history.push("/login");
   }
@@ -20,11 +22,14 @@ function Index() {
         </li>
       </ul>
       <div style={{ flex: 1, padding: "10px", background:'#ABC' }}>
+        <Suspense fallback={<div>loading...</div>}>
           <Route path="/index/a" component={A} />
           <Route path="/index/b" component={B} />
+        </Suspense>
+          
         </div>
     </div>
   );
 }
 
-export default Index;
+export default withRouter(Index);
