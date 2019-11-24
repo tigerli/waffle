@@ -1,11 +1,14 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react'
 
-function A(props) {
+const A = inject('systemStore')(observer((props) =>{
+  let {systemStore} = props
   return (
     <div>
-      A
+      store: {systemStore.dark}
+      <div onClick={()=>{ systemStore.setDark()}}>dsa</div>
     </div>
   );
-}
+}))
 
 export default A;
