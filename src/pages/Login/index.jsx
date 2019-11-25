@@ -1,38 +1,69 @@
-import React from 'react';
-import { useFormState } from 'react-use-form-state';
+import React, {useState, useEffect, useRef} from 'react';
 import { Button, Form, Input, Icon } from 'antd';
-
+import { useHistory} from 'react-router-dom'
+import { createForm } from 'rc-form';
 import { Desktop, Mobile } from '@/pages/Responsive.js'
 import './index.less'
 
+
+function TextareaItemExample(props) {
+  let history = useHistory();
+  useEffect(() => {}, []);
+
+  function handleSubmit(e){
+    e.preventDefault();
+    props.form.validateFields((err, values) => {
+      if (!err) {
+        history.push("/index");
+      }
+    });
+  };
+  const { getFieldDecorator } = props.form;
+  return (
+    <div>
+      <Form className="login-form">
+        <Form.Item>
+          {getFieldDecorator('username', {
+            initialValue: 'dsa',
+            rules: [{ required: true, message: 'Please input your username!' }],
+          })(
+            <Input
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="Username"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('password', {
+            initialValue: 'dsa',
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input
+              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              type="password"
+              placeholder="Password"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" size="large" onClick={handleSubmit} className="login-form-button">
+            Log in
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+}
+const TextareaItemExampleWrapper = Form.create({ name: 'normal_login' })(TextareaItemExample);
+
 function Login(props) {
-  const [formState, { text, email, password, radio }] = useFormState();
   //npm install --save rc-form-hooks
   // https://www.jianshu.com/p/fc59cb61f7cc
   return (
     <div className='login'>
         <Desktop>
           <div className='login-box'>
-            <Form className="login-form">
-              <Form.Item>
-                <Input
-                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                    placeholder="Username"
-                  />
-              </Form.Item>
-              <Form.Item>
-                <Input
-                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                    placeholder="Username"
-                  />
-                  
-              </Form.Item>
-              <Form.Item>
-                <Button type="primary" onClick={()=>{console.log('dsa')}} className="login-form-button">
-                  Log in
-                </Button>
-              </Form.Item>
-            </Form>
+            <TextareaItemExampleWrapper />
           </div>
         </Desktop>
         <Mobile>
