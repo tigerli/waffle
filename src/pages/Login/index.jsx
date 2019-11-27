@@ -1,14 +1,20 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Button, Form, Input, Icon } from 'antd';
 import { useHistory} from 'react-router-dom'
-import { createForm } from 'rc-form';
 import { Desktop, Mobile } from '@/pages/Responsive.js'
 import './index.less'
 
 
-function TextareaItemExample(props) {
+function FormBox(props) {
   let history = useHistory();
-  useEffect(() => {}, []);
+  const [count, setCount] = useState({a: 12});
+
+  useEffect(() => {
+      console.log('effect');
+      return () => {
+          console.log('clean')
+      }
+  }, [count])
 
   function handleSubmit(e){
     e.preventDefault();
@@ -54,7 +60,7 @@ function TextareaItemExample(props) {
     </div>
   );
 }
-const TextareaItemExampleWrapper = Form.create({ name: 'normal_login' })(TextareaItemExample);
+const FormBoxWrapper = Form.create({ name: 'normal_login' })(FormBox);
 
 function Login(props) {
   //npm install --save rc-form-hooks
@@ -63,13 +69,12 @@ function Login(props) {
     <div className='login'>
         <Desktop>
           <div className='login-box'>
-            <TextareaItemExampleWrapper />
+            <FormBoxWrapper />
           </div>
         </Desktop>
         <Mobile>
           <div className='login-mobile-box'>
-
-                      
+            <FormBoxWrapper />     
           </div>
         </Mobile>
     </div>

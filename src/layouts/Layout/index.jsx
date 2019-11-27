@@ -1,13 +1,15 @@
 import React from 'react';
-import './index.less'
+import { Layout as BasicLayout} from 'antd';
+import style from './index.module.less'
 import { inject, observer } from 'mobx-react'
 
 const Layout = inject('systemStore')(observer((props) =>{
+    console.log(style)
     let {systemStore} = props
     return (
-        <div className={`layout ${systemStore.dark?'dark':''}`}>
+        <BasicLayout className={`${systemStore.dark?style.dark:''}`}>
             {props.children}
-        </div>
+        </BasicLayout>
     );
   }))
 
