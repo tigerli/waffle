@@ -1,14 +1,23 @@
 import React, {Suspense, useEffect} from 'react';
 import { Link, withRouter, useHistory, Route} from 'react-router-dom'
 import { Layout, Menu, Icon} from 'antd'
+import { useMediaQuery } from 'react-responsive'
 import style from './index.module.less'
 import { inject, observer } from 'mobx-react'
 const A = React.lazy(() => import("@pages/Index/Demo/A"));
 const B = React.lazy(() => import("@pages/Index/Demo/B"));
+
 const { SubMenu } = Menu;
 const { Header, Sider, Content } = Layout;
 
 let Index = inject('systemStore')(observer((props) => {
+  const isMobile = useMediaQuery({
+    query: '(max-device-width: 991px)'
+  })
+  const isDesktop = useMediaQuery({
+    query: '(min-device-width: 992px)'
+  })
+
   let history = useHistory();
   let a = 'a';
   if(a !== 'a'){
@@ -23,37 +32,41 @@ let Index = inject('systemStore')(observer((props) => {
   let {systemStore} = props
   return (
     <Layout className={`${style.app} ${systemStore.dark?style.dark:''}`}>
-      <Sider collapsed={systemStore.collapsed}>
-        <div style={{flex:"0 0 200px",lineHeight:'64px'}}>
-          <Icon type="pie-chart" />
-          <span>Login</span>
-        </div>
-        <Menu mode={`${systemStore.mode}`} theme={`${systemStore.theme}`}>
-          <Menu.Item>
-            <Link to='/index/a'>
-              <Icon type="pie-chart" />
-              <span>Option 1</span>
-            </Link>
-          </Menu.Item>
-          <SubMenu title={
-              <span>
-                <Icon type="appstore" />
-                <span>Navigation Three</span>
-              </span>
-            }>
+      {isDesktop && 
+        <Sider collapsed={systemStore.collapsed}>
+          <div style={{flex:"0 0 200px",lineHeight:'64px'}}>
+            <Icon type="pie-chart" />
+            <span>Login</span>
+          </div>
+          <Menu mode={`${systemStore.mode}`} theme={`${systemStore.theme}`}>
             <Menu.Item>
               <Link to='/index/a'>
-                <Icon type="desktop" />
-                <span>Option 2</span>
+                <Icon type="pie-chart" />
+                <span>Option 1</span>
               </Link>
             </Menu.Item>
-            <Menu.Item><Link to='/index/b'>B</Link></Menu.Item>
-          </SubMenu>
-        </Menu>
-      </Sider>
+            <SubMenu title={
+                <span>
+                  <Icon type="appstore" />
+                  <span>Navigation Three</span>
+                </span>
+              }>
+              <Menu.Item>
+                <Link to='/index/a'>
+                  <Icon type="desktop" />
+                  <span>Option 2</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item><Link to='/index/b'>B</Link></Menu.Item>
+            </SubMenu>
+          </Menu>
+        </Sider>
+      }
+      
       <Layout>
         <Header>
-          dsa
+          {isMobile && <>dsa</>}
+          dsad
         </Header>
         <Content>
           <Suspense fallback={<div>loading...</div>}>
