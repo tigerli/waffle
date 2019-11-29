@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Button, Form, Input, Icon } from 'antd';
 import { useHistory} from 'react-router-dom'
 import { Desktop, Mobile } from '@/pages/Responsive.js'
@@ -7,7 +7,7 @@ import './index.less'
 
 function FormBox(props) {
   let history = useHistory();
-  const [count, setCount] = useState({a: 12});
+  const [count] = useState({a: 12});
 
   useEffect(() => {
       console.log('effect');

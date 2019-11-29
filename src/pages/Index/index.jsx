@@ -22,7 +22,7 @@ let Index = inject('systemStore')(observer((props) => {
   }, [])
   let {systemStore} = props
   return (
-    <Layout className={`App ${systemStore.dark?style.dark:''}`}>
+    <Layout className={`${style.app} ${systemStore.dark?style.dark:''}`}>
       <Sider collapsed={systemStore.collapsed}>
         <div style={{flex:"0 0 200px",lineHeight:'64px'}}>
           <Icon type="pie-chart" />

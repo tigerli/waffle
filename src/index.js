@@ -4,7 +4,6 @@ import App from '@pages/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router} from 'react-router-dom'
 import { Provider } from 'mobx-react'
-import '@/assets/styles/common.less'
 import stores from '@store';
 
 ReactDOM.render(
