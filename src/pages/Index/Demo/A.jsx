@@ -1,17 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react'
 import { inject, observer } from 'mobx-react'
 import { Spin, Alert} from 'antd'
+import { get} from '@req/index'
+
 const A = inject('systemStore')(observer((props) =>{
     let {systemStore} = props
-    let {loading, setLoading} = useState(true)
-    let {count, setCount} = useState(0)
+    const [loading, setLoading] = useState(false)
+    const [data, setData] = useState({ hits: [] })
+
     useEffect(() => {
-        console.log('effect')
+        const fetchData = async () => {
+            setLoading(true)
     
-        return () => {
-            
+            const result = await get('/api/v1/search?query=redux')
+            console.log(result)
+            setData(result.data)
+            setLoading(false)
         }
-    })
+        fetchData()
+    }, [])
+
     return (
         <Spin spinning={loading} tip="Loading...">
             <Alert
@@ -25,6 +33,11 @@ const A = inject('systemStore')(observer((props) =>{
                 <div onClick={()=>{ systemStore.setCollapsed()}}>菜单收缩</div>
                 <div>{systemStore.theme}</div>
             </div>
+            {data.hits.map(item => (
+                <li key={item.objectID}>
+                    <a href={item.url}>{item.title}</a>
+                </li>
+            ))}
         </Spin>
     )
 }))

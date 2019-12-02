@@ -6,8 +6,8 @@ import style from './index.module.less'
 import { inject, observer } from 'mobx-react'
 import MenuWrapper from '@layouts/Menu'
 import HeaderWrapper from '@layouts/Header'
-const A = React.lazy(() => import("@pages/Index/Demo/A"))
-const B = React.lazy(() => import("@pages/Index/Demo/B"))
+const A = React.lazy(() => import('@pages/Index/Demo/A'))
+const B = React.lazy(() => import('@pages/Index/Demo/B'))
 
 const { Sider, Content } = Layout
 

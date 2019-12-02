@@ -1,6 +1,6 @@
 import React from 'react'
 
-function B(props) {
+function B() {
     return (
         <div>
             <p>ds</p>

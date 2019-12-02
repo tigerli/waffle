@@ -28,19 +28,18 @@ if (process.env.NODE_ENV === 'production') {
 }
 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-
 const validateStatus = function (status) {
     return status < 500
 }
 
-
 // 实例方法(方法名前缀存在async，为异步方法，例如：asyncGet)
-const asyncGet =  (api, params = {}, config = {}) =>{
+const asyncGet =  (api, params = {}) =>{
     message.destroy()
     try {
         message.loading('Action in progress..', 0)
         let res =  axios.get(api, {
-            params: params
+            params: params,
+            validateStatus: validateStatus
         })
         return res
     } catch (err) {
@@ -52,18 +51,14 @@ const asyncGet =  (api, params = {}, config = {}) =>{
     }
 }
 
-const get = async (api, params = {}, config = {}) =>{
-    message.destroy()
+const get = (api, params = {}) =>{
     try {
-        message.loading('Action in progress..', 0)
-        let res = await axios.get(api, {
+        let res = axios.get(api, {
             params: params
         })
         return res
     } catch (err) {
-        console.log('321')
         console.log(err.message)
-        message.error('请求出错！', 4)
     } finally {
         // 无论是否有异常发生都会执行。对关闭打开的链接和释放资源有用。
     }
@@ -81,7 +76,7 @@ const request = (api, method = 'get', params = {}, config = {}) => {
     let headers = {
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiToken}`,
+        'Authorization': `Bearer ${apiToken}`
     }
     if (config.headers) {
         headers = {
