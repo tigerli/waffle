@@ -4,7 +4,7 @@ const {
     fixBabelImports, 
     addLessLoader, 
     addWebpackAlias 
-} = require('customize-cra');
+} = require('customize-cra')
 const AntDesignThemePlugin = require('antd-theme-webpack-plugin')
 const path = require('path')
 
@@ -35,20 +35,23 @@ module.exports = override(
     fixBabelImports('import', {
         libraryName: 'antd',
         libraryDirectory: 'es',
-        style: true,
+        style: true
     }),
     // less
     addLessLoader({
-        javascriptEnabled: true
+        javascriptEnabled: true,
+        localIdentName: '[local]--[hash:base64:5]'
     }),
     // 路径别名
     addWebpackAlias({
         '@': path.resolve(__dirname, 'src'),
         '@library': path.resolve(__dirname, 'src/library'),
+        '@layouts': path.resolve(__dirname, 'src/layouts'),
         '@utils': path.resolve(__dirname, 'src/utils'),
         '@pages': path.resolve(__dirname, 'src/pages'),
         '@store': path.resolve(__dirname, 'src/store'),
+        '@req': path.resolve(__dirname, 'src/library/utils/axios'),
     }),
     // 主题
     addTheme()
-);
+)

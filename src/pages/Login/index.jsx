@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, Input, Icon } from 'antd';
 import { useHistory} from 'react-router-dom'
-import { Desktop, Mobile } from '@/pages/Responsive.js'
-import './index.less'
-
-
+import style from './index.module.less'
+import {get} from '@req/index'
 function FormBox(props) {
+  let {loading, setLoading} = useState(false)
+
   let history = useHistory();
   const [count] = useState({a: 12});
-
+  // let request = request
   useEffect(() => {
       console.log('effect');
       return () => {
@@ -19,11 +19,14 @@ function FormBox(props) {
   function handleSubmit(e){
     e.preventDefault();
     props.form.validateFields((err, values) => {
-      if (!err) {
-        history.push("/index");
-      }
+      get('htttp')
+     
+      // if (!err) {
+      //   history.push("/index");
+      // }
     });
   };
+  
   const { getFieldDecorator } = props.form;
   return (
     <div>
@@ -31,7 +34,7 @@ function FormBox(props) {
         <Form.Item>
           {getFieldDecorator('username', {
             initialValue: 'dsa',
-            rules: [{ required: true, message: 'Please input your username!' }],
+            rules: [{ required: true, message: '用户名不能为空' }],
           })(
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -42,18 +45,18 @@ function FormBox(props) {
         <Form.Item>
           {getFieldDecorator('password', {
             initialValue: 'dsa',
-            rules: [{ required: true, message: 'Please input your Password!' }],
+            rules: [{ required: true, message: '密码不能为空' }],
           })(
-            <Input
+            <Input.Password
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
               placeholder="Password"
             />,
           )}
         </Form.Item>
-        <Form.Item>
-          <Button type="primary" size="large" onClick={handleSubmit} className="login-form-button">
-            Log in
+        <Form.Item labelAlign='right' labelCol={{span: 3, offset: 12}}>
+          <Button onClick={handleSubmit} type="primary" shape="round" loading={loading?true:false}>
+            登录
           </Button>
         </Form.Item>
       </Form>
@@ -66,17 +69,10 @@ function Login(props) {
   //npm install --save rc-form-hooks
   // https://www.jianshu.com/p/fc59cb61f7cc
   return (
-    <div className='login'>
-        <Desktop>
-          <div className='login-box'>
-            <FormBoxWrapper />
-          </div>
-        </Desktop>
-        <Mobile>
-          <div className='login-mobile-box'>
-            <FormBoxWrapper />     
-          </div>
-        </Mobile>
+    <div className={style.app}>
+        <div className={style.rectangle}>
+          <FormBoxWrapper />
+        </div>
     </div>
   );
 }
