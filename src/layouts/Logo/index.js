@@ -8,7 +8,7 @@ let Logo =  inject('systemStore')(observer((props) => {
     return(
         <div className={style.logo}>
             {/* ${display?style.title:style.title_hidden} */}
-            <div className={``}>
+            <div>
                dsa
             </div>
             <div onClick={()=>{systemStore.setCollapsed()}} className={`${style.icon}  ${systemStore.collapsed?style.icon_transition:''}`}>

@@ -1,6 +1,3 @@
-import React from 'react';
-import { message } from 'antd';
-
 import axios from 'axios'
 
 if (process.env.NODE_ENV === 'production') {
@@ -12,21 +9,21 @@ if (process.env.NODE_ENV === 'production') {
 let loadingInstance = null //这里是loading
 //使用create方法创建axios实例
 export const Service = axios.create({
-  timeout: 7000, // 请求超时时间
-  method: 'post',
-  headers: {
-    'Content-Type': 'application/json;charset=UTF-8'
-  }
+    timeout: 7000, // 请求超时时间
+    method: 'post',
+    headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+    }
 })
 // 添加请求拦截器
 Service.interceptors.request.use(config => {
-  return config
+    return config
 })
 // 添加响应拦截器
 Service.interceptors.response.use(response => {
-  loadingInstance.close()
-  // console.log(response)
-  return response.data
+    loadingInstance.close()
+    // console.log(response)
+    return response.data
 }, error => {
-  return Promise.reject(error)
+    return Promise.reject(error)
 })

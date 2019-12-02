@@ -1962,6 +1962,7 @@ this.tinycolor = tinycolor;
 @table-border-radius-base: @border-radius-base;
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
+@table-header-bg-sm: transparent;
 
 // Tag
 // --
@@ -5539,7 +5540,8 @@ form .ant-upload {
 .ant-input-group.ant-input-group-compact > .ant-select-auto-complete .ant-input,
 .ant-input-group.ant-input-group-compact > .ant-cascader-picker .ant-input,
 .ant-input-group.ant-input-group-compact > .ant-mention-wrapper .ant-mention-editor,
-.ant-input-group.ant-input-group-compact > .ant-time-picker .ant-time-picker-input {
+.ant-input-group.ant-input-group-compact > .ant-time-picker .ant-time-picker-input,
+.ant-input-group.ant-input-group-compact > .ant-input-group-wrapper .ant-input {
   border-right-width: 1px;
   border-radius: 0;
 }
@@ -5942,6 +5944,12 @@ form .ant-upload {
 }
 .ant-menu-item > a::before {
   background-color: transparent;
+}
+.ant-menu-item > .ant-badge > a {
+  color: rgba(0, 0, 0, 0.65);
+}
+.ant-menu-item > .ant-badge > a:hover {
+  color: @primary-color;
 }
 .ant-menu-item-divider {
   background-color: #e8e8e8;
@@ -7603,6 +7611,13 @@ tr.ant-table-expanded-row:hover {
 .ant-table-small > .ant-table-title {
   border-bottom: 1px solid #e8e8e8;
 }
+.ant-table-small > .ant-table-content > .ant-table-footer {
+  background-color: transparent;
+  border-top: 1px solid #e8e8e8;
+}
+.ant-table-small > .ant-table-content > .ant-table-footer::before {
+  background-color: transparent;
+}
 .ant-table-small > .ant-table-content > .ant-table-header > table,
 .ant-table-small > .ant-table-content > .ant-table-body > table,
 .ant-table-small > .ant-table-content > .ant-table-scroll > .ant-table-header > table,
@@ -7644,7 +7659,7 @@ tr.ant-table-expanded-row:hover {
   background-color: rgba(0, 0, 0, 0.01);
 }
 .ant-table-small > .ant-table-content .ant-table-header {
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 4px 4px 0 0;
 }
 .ant-table-small > .ant-table-content .ant-table-placeholder,
@@ -8027,6 +8042,9 @@ li.ant-time-picker-panel-select-option-disabled {
 }
 li.ant-time-picker-panel-select-option-disabled:hover {
   background: transparent;
+}
+li.ant-time-picker-panel-select-option-disabled:focus {
+  color: rgba(0, 0, 0, 0.25);
 }
 .ant-time-picker-panel-addon {
   border-top: 1px solid #e8e8e8;

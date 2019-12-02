@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from 'axios'
 import {message} from 'antd'
 
-const token = '';
+const token = ''
 // const codeMessage = {
 //   200: '服务器成功返回请求的数据。',
 //   201: '新建或修改数据成功。',
@@ -22,92 +22,92 @@ const token = '';
 
 // 全局的默认值
 if (process.env.NODE_ENV === 'production') {
-  axios.defaults.baseURL = 'https://www.baidu.com';
+    axios.defaults.baseURL = 'https://www.baidu.com'
 }else{
-  axios.defaults.baseURL = 'https://www.production.com';
+    axios.defaults.baseURL = 'https://www.production.com'
 }
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
 
 const validateStatus = function (status) {
-  return status < 500; 
+    return status < 500
 }
 
 
 // 实例方法(方法名前缀存在async，为异步方法，例如：asyncGet)
 const asyncGet =  (api, params = {}, config = {}) =>{
-  message.destroy();
-  try {
-    message.loading('Action in progress..', 0)
-    let res =  axios.get(api, {
-      params: params
-    })
-    return res;
-  } catch (err) {
-    console.log('321')
-    console.log(err.message)
-    message.error('请求出错！', 4);
-  } finally {
-    // 无论是否有异常发生都会执行。对关闭打开的链接和释放资源有用。
-  }
+    message.destroy()
+    try {
+        message.loading('Action in progress..', 0)
+        let res =  axios.get(api, {
+            params: params
+        })
+        return res
+    } catch (err) {
+        console.log('321')
+        console.log(err.message)
+        message.error('请求出错！', 4)
+    } finally {
+        // 无论是否有异常发生都会执行。对关闭打开的链接和释放资源有用。
+    }
 }
 
 const get = async (api, params = {}, config = {}) =>{
-  message.destroy();
-  try {
-    message.loading('Action in progress..', 0)
-    let res = await axios.get(api, {
-      params: params
-    })
-    return res;
-  } catch (err) {
-    console.log('321')
-    console.log(err.message)
-    message.error('请求出错！', 4);
-  } finally {
-    // 无论是否有异常发生都会执行。对关闭打开的链接和释放资源有用。
-  }
+    message.destroy()
+    try {
+        message.loading('Action in progress..', 0)
+        let res = await axios.get(api, {
+            params: params
+        })
+        return res
+    } catch (err) {
+        console.log('321')
+        console.log(err.message)
+        message.error('请求出错！', 4)
+    } finally {
+        // 无论是否有异常发生都会执行。对关闭打开的链接和释放资源有用。
+    }
 }
 
 /**
  * 模块说明:有api_token的请求
  */
 const request = (api, method = 'get', params = {}, config = {}) => {
-  message.destroy();
-  message.loading('Action in progress..', 0);
-  const apiToken = '************';
-  method.toUpperCase()
-  const data = (method === 'GET') ? 'params' : 'data';
-  let headers = {
-    'X-Requested-With': 'XMLHttpRequest',
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${apiToken}`,
-  };
-  if (config.headers) {
-    headers = {
-      ...headers,
-      ...config.headers
+    message.destroy()
+    message.loading('Action in progress..', 0)
+    const apiToken = '************'
+    method.toUpperCase()
+    const data = (method === 'GET') ? 'params' : 'data'
+    let headers = {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiToken}`,
     }
-  }
-  return new Promise((resolve, reject) => {
-    axios({
-      url: api,
-      method,
-      [data]: params,
-      headers,
-    }).then(resolve)
-      .catch(error => {
-        console.dir(error);
-        message.destroy();
-        // Message.error(typeof error.response.data === 'string' ? error.response.data : JSON.stringify(error.response.data));
-        
-        reject(error);
-      });
-  });
-};
+    if (config.headers) {
+        headers = {
+            ...headers,
+            ...config.headers
+        }
+    }
+    return new Promise((resolve, reject) => {
+        axios({
+            url: api,
+            method,
+            [data]: params,
+            headers
+        }).then(resolve)
+            .catch(error => {
+                console.dir(error)
+                message.destroy()
+                // Message.error(typeof error.response.data === 'string' ? error.response.data : JSON.stringify(error.response.data))
+                
+                reject(error)
+            })
+    })
+}
 
 export {
-  request,
-  get,
-  asyncGet
+    request,
+    get,
+    asyncGet
 } 
