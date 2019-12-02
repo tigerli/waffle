@@ -18,7 +18,7 @@ const options = {
         '@primary-color'
     ], //要改变的主题变量
     indexFileName: './public/index.html', // index.html所在位置
-    lessUrl: "https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js",
+    lessUrl: 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js',
     generateOnce: false // 是否只生成一次
 }
 
