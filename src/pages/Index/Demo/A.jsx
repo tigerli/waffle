@@ -14,7 +14,7 @@ const A = inject('systemStore')(observer((props) =>{
 
     return (
         <Spin spinning={loading} tip="Loading...">
-            <div>
+            <div className='container'>
                 store: {systemStore.dark}
                 <div onClick={()=>{ systemStore.setDark()}}>dsa</div>
                 <div onClick={()=>{ systemStore.setCollapsed()}}>菜单收缩</div>
