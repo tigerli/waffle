@@ -25,16 +25,20 @@ server.post(`${API}/reg`, ({body:{username='', password=''}}, res) => {
 })
 // 响应/mock/login,进行登录验证操作
 server.post(`${API}/login`, ({body:{username='', password=''}}, res) => {
-    (username === 'admin' && password === 'user123456') ?
-        res.jsonp({
-            'err': 0,
-            'msg': '登录成功',
-            'data': {
-                'address': '打破',
-                'email': 'louis.lyr@outlook.com',
-                'tel': '15185724613'
-            }
-        }) :
+    console.log(username),
+    (username === 'admin' && password === '123456') ?
+        setTimeout(() => {  // 由于本地请求速度较快，不方便loading动效显示利用延时器，模拟真实服务器请求速度
+            res.jsonp({
+                'err': 0,
+                'msg': '登录成功',
+                'data': {
+                    'token': '123',
+                    'address': '打破',
+                    'email': 'louis.lyr@outlook.com',
+                    'tel': '15185724613'
+                }
+            })
+        }, 2000) :
         setTimeout(() => {  // 由于本地请求速度较快，不方便loading动效显示利用延时器，模拟真实服务器请求速度
             res.jsonp({
                 'err': 1,

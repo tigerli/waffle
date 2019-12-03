@@ -47,7 +47,7 @@ module.exports = override(
         '@': path.resolve(__dirname, 'src'),
         '@library': path.resolve(__dirname, 'src/library'),
         '@layouts': path.resolve(__dirname, 'src/layouts'),
-        '@utils': path.resolve(__dirname, 'src/utils'),
+        '@utils': path.resolve(__dirname, 'src/library/utils'),
         '@pages': path.resolve(__dirname, 'src/pages'),
         '@store': path.resolve(__dirname, 'src/store'),
         '@http': path.resolve(__dirname, 'src/library/utils/http')

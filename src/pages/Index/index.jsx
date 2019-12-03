@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect} from 'react'
+import React, {Suspense} from 'react'
 import { withRouter, useHistory, Route} from 'react-router-dom'
 import { Layout} from 'antd'
 import { useMediaQuery } from 'react-responsive'
@@ -6,6 +6,8 @@ import style from './index.module.less'
 import { inject, observer } from 'mobx-react'
 import MenuWrapper from '@layouts/Menu'
 import HeaderWrapper from '@layouts/Header'
+import { getToken } from '@utils/auth'
+import { isEmpty } from '@library/utils/validate'
 const A = React.lazy(() => import('@pages/Index/Demo/A'))
 const B = React.lazy(() => import('@pages/Index/Demo/B'))
 
@@ -20,17 +22,10 @@ let Index = inject('systemStore')(observer((props) => {
     })
 
     let history = useHistory()
-    let a = 'a'
-    if(a !== 'a'){
+    if(isEmpty(getToken())){
         history.push('/login')
     }
-    useEffect(() => {
-        console.log('effect')
-        return () => {
-            console.log('clean')
-        }
-    }, [])
-    
+
     let {systemStore} = props
     return (
         <Layout className={`${style.app} ${systemStore.dark?style.dark:''}`}>

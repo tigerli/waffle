@@ -1,36 +1,45 @@
-import React, {useState, useEffect} from 'react';
-import { Button, Form, Input, Icon } from 'antd';
+import React, {useState} from 'react'
+import { Button, Form, Input, Icon, message, Spin, Alert } from 'antd'
 import { useHistory} from 'react-router-dom'
 import style from './index.module.less'
-import { post, get } from '@http/index'
+import { post } from '@http/index'
+import { setToken } from '@utils/auth'
+import storage from '@utils/localStorage'
+
 function FormBox(props) {
-    let {loading, setLoading} = useState(false)
-
-    const [count] = useState({a: 12})
-    // let request = request
-    useEffect(() => {
-        console.log('effect')
-        return () => {
-            console.log('clean')
-        }
-    }, [count])
-
+    let history = useHistory()
+    const [btnLoading, setBtnLoading] = useState(false)
+    const { getFieldDecorator } = props.form
     function handleSubmit(e){
         e.preventDefault()
         props.form.validateFields((err, values) => {
+            setBtnLoading(true)
             post('/api/login', 
                 {
-                    username:'dsa', 
-                    password: 'dsa'
+                    username:'admin', 
+                    password: '123456'
                 },
                 function(res){
-                    console.log(res)
+                    if(res.err === 1){
+                        message.error(res.msg)
+                    }else{
+                        setToken(res.data.token)
+                        delete res.data.token
+                        storage.set('info', res.data)
+                        props.setloading(true)
+                        setTimeout(() => {
+                            props.setloading(false)
+                            history.push('/index')
+                        }, 2000)
+                        
+                    }
                 },
                 function(err){
-                    console.log(`${err},dsa`)
+                    console.log(err)
+                    message.error('ds')
                 },
                 function(){
-                    console.log('dsa')
+                    setBtnLoading(false)
                 }
             )
         // if (!err) {
@@ -38,19 +47,7 @@ function FormBox(props) {
         // }
         })
     }
-    function test(){
-        get(
-            '/api/news', 
-            {}, 
-            function(res){
-                console.log(res)
-            },
-            function(err){
-                console.log(`${err},dsa`)
-            }
-        )
-    }
-    const { getFieldDecorator } = props.form
+    
     return (
         <div>
             <Form className="login-form">
@@ -68,7 +65,7 @@ function FormBox(props) {
                 <Form.Item>
                     {getFieldDecorator('password', {
                         initialValue: 'dsa',
-                        rules: [{ required: true, message: '密码不能为空' }],
+                        rules: [{ required: true, message: '密码不能为空' }]
                     })(
                         <Input.Password
                             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -78,27 +75,34 @@ function FormBox(props) {
                     )}
                 </Form.Item>
                 <Form.Item labelAlign='right' labelCol={{span: 3, offset: 12}}>
-                    <Button onClick={handleSubmit} type="primary" shape="round" loading={loading?true:false}>
+                    <Button onClick={handleSubmit} type="primary" shape="round" loading={btnLoading?true:false}>
                         登录
-                    </Button>
-                    <Button onClick={test}>
-                        测试
                     </Button>
                 </Form.Item>
             </Form>
         </div>
-    );
+    )
 }
 const FormBoxWrapper = Form.create({ name: 'normal_login' })(FormBox);
 
-function Login(props) {
+function Login() {
+    const [loading, setloading] = useState(false)
     //npm install --save rc-form-hooks
     // https://www.jianshu.com/p/fc59cb61f7cc
+    const container = (
+        <Alert
+            message="Alert message title"
+            description="Further details about the context of this alert."
+            type="info"
+        />
+    )
     return (
         <div className={style.app}>
-            <div className={style.rectangle}>
-                <FormBoxWrapper />
-            </div>
+            <Spin spinning={loading}>
+                <div className={style.rectangle}>
+                    <FormBoxWrapper setloading={setloading}/>
+                </div>
+            </Spin>
         </div>
     )
 }
