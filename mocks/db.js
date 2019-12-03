@@ -1,29 +1,25 @@
-const Mock = require('mockjs') // 引入mockJS
-const MR = Mock.Random // 提mock的随机对象
-// 由于jsonServer接收的是一个对象或者是函数，所以此文件需要对外导出一个对象或者函数
-// 注意：在使用mockJS的api生成随机数据时，会产生相同数据，如果需要修复这一bug，可自行将id进行随机操作
-function mapData(n){
-    let data = []
-    for(let i = 0; i < n; i++){
-        data.push({
-            id: i,
-            'imgURL': MR.image('750X200', MR.color(), MR.cword(4, 10))
+let Mock  = require('mockjs')
+let Random = Mock.Random
+module.exports = function() {
+    let data = { 
+        news: []
+    }
+  
+    let images = [1, 2, 3].map( x =>Random.image('200x100', Random.color(), Random.word(2, 6)))
+
+    for (let i = 0; i < 100; i++) {
+        
+        let content = Random.cparagraph(0, 10)
+
+        data.news.push({
+            id: i, 
+            title: Random.cword(8, 20),
+            desc: content.substr(0, 40),
+            tag: Random.cword(2, 6),
+            views: Random.integer(100, 5000),
+            images: images.slice(0, Random.integer(1, 3))
         })
     }
-    return data
-}
-module.exports = () => {
-    let data = Mock.mock({
-        'home|5-20': [
-            {
-                // 属性“id”是一个自增长数，初始值为1,可以在|后面指定增长量,mockJS语法可参照MockJS官方文档：http://mockjs.com/
-                'id|+1': 1,
-                'name': '@cname',
-                'imgURL': MR.image('750X200', MR.color(), MR.cword(4, 10)) // 产生相同的数据
-            }
-        ],
-        'homee': mapData(10)
-        // 如果需要添加其它接口可在此文件内添加...
-    })
+
     return data
 }

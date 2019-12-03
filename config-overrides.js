@@ -50,7 +50,7 @@ module.exports = override(
         '@utils': path.resolve(__dirname, 'src/utils'),
         '@pages': path.resolve(__dirname, 'src/pages'),
         '@store': path.resolve(__dirname, 'src/store'),
-        '@req': path.resolve(__dirname, 'src/library/utils/axios')
+        '@http': path.resolve(__dirname, 'src/library/utils/http')
     }),
     // 主题
     addTheme()

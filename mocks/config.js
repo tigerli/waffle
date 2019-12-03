@@ -1,4 +1,3 @@
-// 定义配置信息
 module.exports = {
     HOST: 'localhost', // 定义ip地址
     PORT: '3023', // 定义端口号
