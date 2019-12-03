@@ -24,7 +24,7 @@ const MenuWrapper = inject('systemStore')(observer((props) =>{
                 
                     Routers.map((route, _) => {
                         ++index
-                        if(isEmpty(route.routes)){
+                        if(isEmpty(route.children)){
                             return (
                                 <Menu.Item key={`${index}`}>
                                     <Link to={route.path}>
@@ -35,11 +35,11 @@ const MenuWrapper = inject('systemStore')(observer((props) =>{
                             )
                         }else{
                             let items = []
-                            route.routes.map((r) => {
+                            route.children.map((r) => {
                                 ++index
                                 items.push(
                                     <Menu.Item key={index}>
-                                        <Link to={r.path}>
+                                        <Link to={route.path+r.path}>
                                             {
                                                 isEmpty(r.icon)?'':<Icon type={r.icon}/>
                                             }

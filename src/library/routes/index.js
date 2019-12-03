@@ -2,31 +2,35 @@ import React from 'react'
 import Demo from '@library/routes/modules/Demo'
 const A = React.lazy(() => import('@pages/Index/Demo/A'))
 const B = React.lazy(() => import('@pages/Index/Demo/B'))
-
+const basePath = '/index'
 const Routers = [
     {
-        path: '/index/a',
+        path: basePath,
+        breadcrumbName: 'Dashboard',
         title: 'Dashboard',
         icon: 'bar-chart',
         component: A
     },
     {
-        path: '/index/b',
+        path: basePath,
+        breadcrumbName: 'Dashboard',
         title: 'Dashboard1',
         icon: 'bar-chart',
         component: B
     },
     {
-        path: '/index/a',
+        path: basePath,
+        breadcrumbName: 'Dashboard',
         title: 'Demo',
         icon: 'bar-chart',
-        routes: Demo
+        children: Demo
     },
     {
-        path: '/index/a',
+        path: basePath,
+        breadcrumbName: 'Dashboard',
         title: 'Demo1',
         icon: 'bar-chart',
-        routes: Demo
+        children: Demo
     }
 ]
 export default Routers

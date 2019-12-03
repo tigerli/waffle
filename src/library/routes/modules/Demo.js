@@ -4,13 +4,15 @@ const B = React.lazy(() => import('@pages/Index/Demo/B'))
 
 const Demo = [
     {
-        path: '/index/a',
+        path: '/a',
+        breadcrumbName: 'Dashboard',
         title: 'A',
         icon: 'bar-chart',
         component: A
     },
     {
-        path: '/index/b',
+        path: '/b',
+        breadcrumbName: 'Dashboard',
         title: 'B',
         icon: 'bar-chart',
         component: B

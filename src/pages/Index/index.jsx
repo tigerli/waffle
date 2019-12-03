@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react'
 import { withRouter, useHistory, Route} from 'react-router-dom'
-import { Layout} from 'antd'
+import { Layout, BackTop} from 'antd'
 import { useMediaQuery } from 'react-responsive'
 import style from './index.module.less'
 import { inject, observer } from 'mobx-react'
@@ -42,6 +42,7 @@ let Index = inject('systemStore')(observer((props) => {
                         <Route path="/index/a" component={A} />
                         <Route path="/index/b" component={B} />
                     </Suspense>
+                    <BackTop />
                 </Content>
             </Layout>
         </Layout>
