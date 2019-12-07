@@ -1,6 +1,6 @@
 import React, {Suspense, useState} from 'react'
 import { Layout, BackTop} from 'antd'
-import BreadcrumbWrapper from '@layouts/Breadcrumb'
+// import BreadcrumbWrapper from '@layouts/Breadcrumb'
 import { Route } from 'react-router-dom'
 import { isEmpty } from '@library/utils/validate'
 const { Content } = Layout
@@ -25,7 +25,7 @@ function ContentWrapper(porps){
     return(
         <>
             <Content>
-                <BreadcrumbWrapper />
+                {/* <BreadcrumbWrapper /> */}
                 <Suspense fallback={<div>loading...</div>}>
                     {
                         routeItem.map((route, key) => {
