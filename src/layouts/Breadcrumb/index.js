@@ -1,41 +1,25 @@
-import { Link } from 'react-router';
-
-const routes = [
-  {
-    path: 'index',
-    breadcrumbName: 'home',
-  },
-  {
-    path: 'first',
-    breadcrumbName: 'first',
-    children: [
-      {
-        path: '/general',
-        breadcrumbName: 'General',
-      },
-      {
-        path: '/layout',
-        breadcrumbName: 'Layout',
-      },
-      {
-        path: '/navigation',
-        breadcrumbName: 'Navigation',
-      },
-    ],
-  },
-  {
-    path: 'second',
-    breadcrumbName: 'second',
-  },
-];
-
-function itemRender(route, params, routes, paths) {
-  const last = routes.indexOf(route) === routes.length - 1;
-  return last ? (
-    <span>{route.breadcrumbName}</span>
-  ) : (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-  );
+import React from 'react'
+import { useLocation } from 'react-router-dom'
+import { Breadcrumb } from 'antd'
+const BreadcrumbWrapper = () =>{
+    let location = useLocation()
+    let pathname = location.pathname.split('/')
+    return (
+        <>
+            <Breadcrumb>
+                {
+                    pathname.map((item, key)=>{
+                        if(item.length > 0){
+                            return (
+                                <Breadcrumb.Item key={key}>{item}</Breadcrumb.Item>
+                            )
+                        }
+                        return ''
+                    })
+                }
+            </Breadcrumb>
+        </>
+    )
 }
 
-return <Breadcrumb itemRender={itemRender} routes={routes} />
+export default BreadcrumbWrapper

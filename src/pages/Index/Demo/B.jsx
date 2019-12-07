@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Spin, BackTop } from 'antd'
+import { Spin } from 'antd'
 function B() {
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 2000)
+        setLoading(false)
         return () => {}
     }, [])
     return (

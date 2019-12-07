@@ -13,7 +13,7 @@ const HeaderWrapper = inject('systemStore')(observer((props) =>{
         <>
             <Header>
                 {isMobile && <>dsa</>}
-            
+                {systemStore.dark}
             </Header>
         </>
     )

@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useMemo} from 'react'
 import {  Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
-import Routers from '@library/routes'
-
 import { inject, observer } from 'mobx-react'
 import { isEmpty } from '@library/utils/validate'
 const { SubMenu } = Menu
 
 const MenuWrapper = inject('systemStore')(observer((props) =>{
-    let {systemStore} = props
+    let {systemStore, routers} = props
     let index = 0
+
+    useMemo(() => {
+        return routers
+    }, [routers])
+
     return (
         <>
             <div style={{flex:'0 0 200px', height:'64px'}}>
@@ -19,10 +22,10 @@ const MenuWrapper = inject('systemStore')(observer((props) =>{
             <Menu 
                 mode={`${systemStore.mode}`} 
                 theme={`${systemStore.theme}`} 
+                defaultSelectedKeys="1"
             >
                 {   
-                
-                    Routers.map((route, _) => {
+                    routers.map((route) => {
                         ++index
                         if(isEmpty(route.children)){
                             return (
@@ -39,7 +42,7 @@ const MenuWrapper = inject('systemStore')(observer((props) =>{
                                 ++index
                                 items.push(
                                     <Menu.Item key={index}>
-                                        <Link to={route.path+r.path}>
+                                        <Link to={r.path}>
                                             {
                                                 isEmpty(r.icon)?'':<Icon type={r.icon}/>
                                             }

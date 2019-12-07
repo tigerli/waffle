@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Button, Form, Input, Icon, message, Spin, Alert } from 'antd'
+import { Button, Form, Input, Icon, message, Spin } from 'antd'
 import { useHistory} from 'react-router-dom'
 import style from './index.module.less'
 import { post } from '@http/index'
@@ -29,7 +29,7 @@ function FormBox(props) {
                         props.setloading(true)
                         setTimeout(() => {
                             props.setloading(false)
-                            history.push('/index')
+                            history.push('/home/dashboard')
                         }, 2000)
                         
                     }
@@ -89,13 +89,6 @@ function Login() {
     const [loading, setloading] = useState(false)
     //npm install --save rc-form-hooks
     // https://www.jianshu.com/p/fc59cb61f7cc
-    const container = (
-        <Alert
-            message="Alert message title"
-            description="Further details about the context of this alert."
-            type="info"
-        />
-    )
     return (
         <div className={style.app}>
             <Spin spinning={loading}>
@@ -107,4 +100,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Login
