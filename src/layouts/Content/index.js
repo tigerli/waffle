@@ -1,5 +1,5 @@
-import React, {Suspense, useState} from 'react'
-import { Layout, BackTop} from 'antd'
+import React, { Suspense, useState } from 'react'
+import { Layout, BackTop } from 'antd'
 // import BreadcrumbWrapper from '@layouts/Breadcrumb'
 import { Route } from 'react-router-dom'
 import { isEmpty } from '@library/utils/validate'

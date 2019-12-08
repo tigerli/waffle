@@ -1,6 +1,6 @@
 import React from 'react'
 import Demo from '@library/routes/modules/Demo'
-const A = React.lazy(() => import('@pages/Index/Demo/A'))
+const Dashboard = React.lazy(() => import('@pages/Index/Dashboard'))
 
 const basePath = '/home/'
 const Routers = [
@@ -8,7 +8,7 @@ const Routers = [
         path: basePath+'dashboard',
         title: 'Dashboard',
         icon: 'bar-chart',
-        component: A
+        component: Dashboard
     },
     {
         path: basePath+'demo',
