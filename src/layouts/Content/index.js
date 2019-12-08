@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense, useState, useEffect } from 'react'
 import { Layout, BackTop } from 'antd'
 // import BreadcrumbWrapper from '@layouts/Breadcrumb'
 import { Route } from 'react-router-dom'
@@ -10,18 +10,26 @@ const { Content } = Layout
 //   } from "react-transition-group";
 function ContentWrapper(porps){
     let { routers } = porps
-    let [routeItem] = useState([])
-    routers.map((route) => {
-        if(!isEmpty(route.children)){
-            route.children.map((r) => {
-                routeItem.push(r)
-                return ''
-            })
-        }else{
-            routeItem.push(route)
+    let [routeItem, setRouteItem] = useState([])
+    
+    useEffect( () => {
+        let item = []
+        routers.map((route) => {
+            if(!isEmpty(route.children)){
+                route.children.map((r) => {
+                    item.push(r)
+                    return ''
+                })
+            }else{
+                item.push(route)
+            }
+            return ''
+        })
+        setRouteItem(item)
+        return ()=>{
+            setRouteItem([])
         }
-        return ''
-    })
+    }, [routers])
     return(
         <>
             <Content>

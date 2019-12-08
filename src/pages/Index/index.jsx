@@ -5,6 +5,8 @@ import { useMediaQuery } from 'react-responsive'
 import style from './index.module.less'
 import { inject, observer } from 'mobx-react'
 import MenuWrapper from '@layouts/Menu'
+import DrawerWrapper from '@layouts/Drawer'
+
 import ContentWrapper from '@layouts/Content'
 import HeaderWrapper from '@layouts/Header'
 import { getToken } from '@utils/auth'
@@ -56,6 +58,7 @@ let Index = inject('systemStore')(observer((props) => {
             <Layout>
                 <HeaderWrapper />
                 <ContentWrapper routers={routers}/>
+                <DrawerWrapper />
             </Layout>
         </Layout>
     )
