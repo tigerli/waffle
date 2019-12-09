@@ -5,8 +5,8 @@ import { inject, observer } from 'mobx-react'
 import { isEmpty } from '@library/utils/validate'
 const { SubMenu } = Menu
 
-const MenuWrapper = inject('systemStore')(observer((props) =>{
-    let {systemStore, routers} = props
+const MenuWrapper = inject('store')(observer((props) =>{
+    let {store, routers} = props
     let index = 0
 
     useMemo(() => {
@@ -20,8 +20,8 @@ const MenuWrapper = inject('systemStore')(observer((props) =>{
                 <span>Login</span> */}
             </div>
             <Menu 
-                mode={`${systemStore.mode}`} 
-                theme={`${systemStore.theme}`} 
+                mode={`${store.mode}`} 
+                theme={`${store.theme}`} 
                 defaultSelectedKeys="1"
             >
                 {   

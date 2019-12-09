@@ -5,8 +5,8 @@ import { useMediaQuery } from 'react-responsive'
 import style from './index.module.less'
 const { Header } = Layout
 
-const HeaderWrapper = inject('systemStore')(observer((props) =>{
-    let {systemStore} = props
+const HeaderWrapper = inject('store')(observer((props) =>{
+    let {store} = props
     const isMobile = useMediaQuery({
         query: '(max-device-width: 991px)'
     })
@@ -19,7 +19,7 @@ const HeaderWrapper = inject('systemStore')(observer((props) =>{
                         :
                         <div className={style.header}>
                             <div>
-                                <Icon type="menu-fold" className={style.menu_icon} onClick={()=>{systemStore.setCollapsed()}} />
+                                <Icon type="menu-fold" className={style.menu_icon} onClick={()=>{store.setCollapsed()}} />
                             </div>
                             <div>
                                 <Icon type="search" className={style.icon} />
@@ -27,7 +27,7 @@ const HeaderWrapper = inject('systemStore')(observer((props) =>{
                                 <Badge dot>
                                     <Avatar icon="user" />
                                 </Badge>
-                                <Icon type="align-left" className={style.icon} onClick={()=>{systemStore.setDrawer()}} />
+                                <Icon type="align-left" className={style.icon} onClick={()=>{store.setDrawer()}} />
                             </div>
                         </div>
                 }

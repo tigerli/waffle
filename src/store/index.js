@@ -1,5 +1,5 @@
-import systemStore from './system'
+import store from './system'
 
 export default {
-    systemStore
+    store
 }

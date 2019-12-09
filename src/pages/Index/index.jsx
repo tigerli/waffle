@@ -15,7 +15,7 @@ import Routers from '@library/routes'
 
 const { Sider } = Layout
 
-let Index = inject('systemStore')(observer((props) => {
+let Index = inject('store')(observer((props) => {
     const [routers, setRouters] = useState([])
     // const isMobile = useMediaQuery({
     //     query: '(max-device-width: 991px)'
@@ -47,11 +47,11 @@ let Index = inject('systemStore')(observer((props) => {
         }
     }, [routers])
 
-    let {systemStore} = props
+    let {store} = props
     return (
-        <Layout className={`${style.app} ${systemStore.dark?style.dark:''}`}>
+        <Layout className={`${style.app} ${store.dark?style.dark:''}`}>
             {isDesktop && 
-                <Sider collapsed={systemStore.collapsed}>
+                <Sider collapsed={store.collapsed}>
                     <MenuWrapper routers={routers}/>
                 </Sider>
             }
