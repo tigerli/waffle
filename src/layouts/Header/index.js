@@ -19,7 +19,7 @@ const HeaderWrapper = inject('store')(observer((props) =>{
                         :
                         <div className={style.header}>
                             <div>
-                                <Icon type="menu-fold" className={style.menu_icon} onClick={()=>{store.setCollapsed()}} />
+                                <Icon type={store.collapsed?'menu-unfold':'menu-fold'} className={style.menu_icon} onClick={()=>{store.setCollapsed()}} />
                             </div>
                             <div>
                                 <Icon type="search" className={style.icon} />
