@@ -14,8 +14,7 @@ const Dashboard = inject('store')(observer((props) =>{
         <Spin spinning={loading} tip="Loading...">
             <div className='container'>
                 store: {store.dark}
-                <div onClick={()=>{ store.setDark()}}>dsa</div>
-                <div onClick={()=>{ store.setCollapsed()}}>菜单收缩</div>
+               
                 <div>{store.theme}</div>
             </div>
         </Spin>

@@ -15,7 +15,7 @@ const DrawerWrapper = inject('store')(observer((props) =>{
                     onClose={store.setDrawer}
                     visible={store.drawer}
                     bodyStyle={{ paddingBottom: 80 }}
-                    className={style.drawer}
+                    className={`${style.drawer} ${store.dark?style.dark:''}`}
                 >
                     <Row>
                         <div className={style.column}>

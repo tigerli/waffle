@@ -5,8 +5,10 @@ import style from './index.module.less'
 import { post } from '@http/index'
 import { setToken } from '@utils/auth'
 import storage from '@utils/localStorage'
+import { inject, observer } from 'mobx-react'
 
 function FormBox(props) {
+    let { user } = props
     let history = useHistory()
     const [btnLoading, setBtnLoading] = useState(false)
     const { getFieldDecorator } = props.form
@@ -26,7 +28,11 @@ function FormBox(props) {
                         setToken(res.data.token)
                         delete res.data.token
                         storage.set('info', res.data)
+                        console.log(res.data)
                         props.setloading(true)
+                        console.log(res.data)
+                        console.log(user)
+                        
                         setTimeout(() => {
                             props.setloading(false)
                             history.push('/home/dashboard')
@@ -54,7 +60,7 @@ function FormBox(props) {
                 <Form.Item>
                     {getFieldDecorator('username', {
                         initialValue: 'dsa',
-                        rules: [{ required: true, message: '用户名不能为空' }],
+                        rules: [{ required: true, message: '用户名不能为空' }]
                     })(
                         <Input
                             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -83,9 +89,9 @@ function FormBox(props) {
         </div>
     )
 }
-const FormBoxWrapper = Form.create({ name: 'normal_login' })(FormBox);
+const FormBoxWrapper = Form.create({ name: 'normal_login' })(inject('user')(observer(FormBox)))
 
-function Login() {
+let Login = inject('user')(observer(() => {
     const [loading, setloading] = useState(false)
     //npm install --save rc-form-hooks
     // https://www.jianshu.com/p/fc59cb61f7cc
@@ -98,6 +104,6 @@ function Login() {
             </Spin>
         </div>
     )
-}
+}))
 
 export default Login

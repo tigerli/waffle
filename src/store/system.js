@@ -4,10 +4,9 @@ class System{
     @observable dark = false
     @observable collapsed = false
     @observable drawer = false
-    
     @observable mode = 'inline'
     @observable theme = 'light'
-    
+
     @action
     setDark = () => {
         this.dark = !this.dark

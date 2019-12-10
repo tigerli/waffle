@@ -1,4 +1,6 @@
 const jsonServer = require('json-server')
+let Mock  = require('mockjs')
+let Random = Mock.Random
 const server = jsonServer.create()
 const middlewares = jsonServer.defaults()
 const rules = require('./routes') 
@@ -35,7 +37,8 @@ server.post(`${API}/login`, ({body:{username='', password=''}}, res) => {
                     'token': '123',
                     'address': '打破',
                     'email': 'louis.lyr@outlook.com',
-                    'tel': '15185724613'
+                    'tel': '15185724613',
+                    'avatar': Random.image('200x200', Random.color(), Random.word(2, 6))
                 }
             })
         }, 2000) :
