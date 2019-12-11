@@ -28,16 +28,12 @@ function FormBox(props) {
                         setToken(res.data.token)
                         delete res.data.token
                         storage.set('info', res.data)
-                        console.log(res.data)
                         props.setloading(true)
-                        console.log(res.data)
-                        console.log(user)
-                        
+                        user.setInfo(res.data)
                         setTimeout(() => {
                             props.setloading(false)
                             history.push('/home/dashboard')
                         }, 2000)
-                        
                     }
                 },
                 function(err){

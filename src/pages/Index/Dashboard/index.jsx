@@ -1,8 +1,24 @@
 import React, { useState, useEffect} from 'react'
 import { inject, observer } from 'mobx-react'
-import { Spin} from 'antd'
+import { Spin, Row, Col, Card } from 'antd'
+import {
+    G2,
+    Chart,
+    Geom,
+    Axis,
+    Tooltip,
+    Coord,
+    Label,
+    Legend,
+    View,
+    Guide,
+    Shape,
+    Facet,
+    Util
+} from 'bizcharts'
+
+
 const Dashboard = inject('store')(observer((props) =>{
-    let {store} = props
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -10,12 +26,92 @@ const Dashboard = inject('store')(observer((props) =>{
         return () => {}
     }, [])
 
+    const data = [
+        {
+            year: '1991',
+            value: 3
+        },
+        {
+            year: '1992',
+            value: 4
+        },
+        {
+            year: '1993',
+            value: 3.5
+        },
+        {
+            year: '1994',
+            value: 5
+        },
+        {
+            year: '1995',
+            value: 4.9
+        },
+        {
+            year: '1996',
+            value: 6
+        },
+        {
+            year: '1997',
+            value: 7
+        },
+        {
+            year: '1998',
+            value: 9
+        },
+        {
+            year: '1999',
+            value: 13
+        }
+    ]
+    const cols = {
+        value: {
+            min: 0
+        },
+        year: {
+            range: [0, 1]
+        }
+    }
     return (
-        <Spin spinning={loading} tip="Loading...">
+        <Spin spinning={loading} tip='Loading...'>
             <div className='container'>
-                store: {store.dark}
-               
-                <div>{store.theme}</div>
+                <Row gutter={16}>
+                    <Col className='gutter-row' span={18}>
+                        <div className='gutter-box'>col-6</div>
+                    </Col>
+                </Row>
+                <Row gutter={16}>
+                    <Col className='gutter-row' span={8}>
+                        <Card title='Card title' style={{borderRadius:'10px', width:'570px'}}>
+                            <Chart padding="auto" height={278} data={data} scale={cols} forceFit>
+                                <Axis name='year' />
+                                <Axis name='value' />
+                                <Tooltip
+                                    crosshairs={{
+                                        type: 'y'
+                                    }}
+                                />
+                                <Geom type='line' position='year*value' size={2} />
+                                <Geom
+                                    type='point'
+                                    position='year*value'
+                                    size={4}
+                                    shape={'circle'}
+                                    style={{
+                                        stroke: '#fff',
+                                        lineWidth: 1
+                                    }}
+                                />
+                            </Chart>
+                        </Card>
+                    </Col>
+                    <Col className='gutter-row' span={8}>
+                        <div className='gutter-box'>col-6</div>
+                    </Col>
+                    <Col className='gutter-row' span={8}>
+                        <div className='gutter-box'>col-6</div>
+                    </Col>
+                </Row>
             </div>
         </Spin>
     )

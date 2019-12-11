@@ -17,35 +17,35 @@ const { Sider } = Layout
 
 let Index = inject('store')(observer((props) => {
     const [routers, setRouters] = useState([])
+    let history = useHistory()
     // const isMobile = useMediaQuery({
     //     query: '(max-device-width: 991px)'
     // })
     const isDesktop = useMediaQuery({
         query: '(min-device-width: 992px)'
     })
-    let history = useHistory()
-    if(isEmpty(getToken())){
-        setTimeout(() => {
-            history.push('/login')
-        }, 1000)
-    }
+    
     useEffect( () => {
-        Routers.map((route) => {
-            if(!isEmpty(route.children)){
-                route.children.map((r) => {
-                    if(r.path.split('/').length === 2){
-                        r.path = route.path+r.path
-                    }
-                    return ''
-                })
-            }
-            return ''
-        })
-        setRouters(Routers)
+        if(isEmpty(getToken())){
+            history.push('/login')
+        }else{
+            Routers.map((route) => {
+                if(!isEmpty(route.children)){
+                    route.children.map((r) => {
+                        if(r.path.split('/').length === 2){
+                            r.path = route.path+r.path
+                        }
+                        return ''
+                    })
+                }
+                return ''
+            })
+            setRouters(Routers)
+        }
         return ()=>{
             setRouters([])
         }
-    }, [routers])
+    }, [routers, history])
 
     let {store} = props
     return (

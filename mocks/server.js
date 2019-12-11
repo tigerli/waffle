@@ -38,7 +38,7 @@ server.post(`${API}/login`, ({body:{username='', password=''}}, res) => {
                     'address': '打破',
                     'email': 'louis.lyr@outlook.com',
                     'tel': '15185724613',
-                    'avatar': Random.image('200x200', Random.color(), Random.word(2, 6))
+                    'avatar': '' // Random.image('200x200', Random.color(), Random.word(2, 6))
                 }
             })
         }, 2000) :

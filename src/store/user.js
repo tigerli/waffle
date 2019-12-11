@@ -1,12 +1,11 @@
-import { observable, action, trace } from 'mobx'
+import { action, observable } from 'mobx'
 
 class User{
-    @observable.shallow info = {}
+    @observable info = new Map()
 
-    @action
+    @action //动作
     setInfo = (info) => {
-        trace(true)
-        this.info = info
+        this.info.replace(info)
     }
 }
   

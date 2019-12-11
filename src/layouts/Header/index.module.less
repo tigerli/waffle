@@ -1,11 +1,21 @@
+@import '../../styles/variables.less';
+
 .header{
     height: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0 40px;
+    box-sizing: border-box;
     &>div{
         display: flex;
         align-items: center;
+        &>div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 64px;
+            width: 50px;
+        }
     }
     .menu_icon{
         display: block;
@@ -14,11 +24,27 @@
     .icon{
         display: block;
         font-size: 18px;
-        margin-right: 24px;
-        &:last-child{
-            margin-left: 24px;
-            margin-right: 0;
-        }
     }
    
+    .plummer{
+        position: relative;
+    }
+}
+.pointer{
+    cursor: pointer;
+}
+.userPopover{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    &>div{
+        width: 100%;
+        height: 48px;
+        cursor: pointer;
+        &:hover{
+            &>span{
+                color: @dropdown-selected-color;
+            }
+        }
+    }
 }
