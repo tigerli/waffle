@@ -26,7 +26,17 @@ const DrawerWrapper = inject('store')(observer((props) =>{
                             <div>切换模式</div>
                             <div><Switch defaultChecked onClick={()=>{ store.setDark()}} /></div>
                         </div>
-                        
+                        <div className={style.row}>
+                            <div>切换主题</div>
+                            <div>
+                                <span onClick={()=>{window.less.modifyVars({'@primary-color': '#ff5918'})}}>
+                                    红
+                                </span>
+                                <span onClick={()=>{window.less.modifyVars({'@primary-color': '#aa6618'})}}>
+                                    蓝
+                                </span>
+                            </div>
+                        </div>
                         {/* <Col span={24} className={style.title}>主题</Col>
                         <Col span={24}>
                             s

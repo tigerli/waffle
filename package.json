@@ -27,6 +27,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
+    "sm": "concurrently \"yarn start\" \"yarn run mock\" ",
     "mock": "cd mocks && node ./server.js"
   },
   "eslintConfig": {
@@ -52,7 +53,8 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
     "json-server": "^0.15.1",
-    "mockjs": "^1.0.1-beta3"
+    "mockjs": "^1.0.1-beta3",
+    "concurrently": "^5.0.0"
   },
   "proxy": "http://localhost:3023"
 }

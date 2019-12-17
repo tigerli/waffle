@@ -1,6 +1,8 @@
+import { G2 } from 'bizcharts'
 import { observable, action } from 'mobx'
-
+const { Global } = G2 // 获取 Global 全局对象
 class System{
+   
     @observable dark = false
     @observable collapsed = false
     @observable drawer = false
@@ -12,6 +14,7 @@ class System{
         this.dark = !this.dark
         if(this.dark){
             this.theme = 'dark'
+            // Global.setTheme('dark')
         }else{
             this.theme = 'light'
         }

@@ -24,7 +24,6 @@ const options = {
 
 const addTheme = () => (config) => {
     config.plugins.push(new AntDesignThemePlugin(options))
-    console.log(config)
     return config
 }
 

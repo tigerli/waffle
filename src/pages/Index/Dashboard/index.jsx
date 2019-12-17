@@ -2,25 +2,15 @@ import React, { useState, useEffect} from 'react'
 import { inject, observer } from 'mobx-react'
 import { Spin, Row, Col, Card } from 'antd'
 import {
-    G2,
     Chart,
     Geom,
     Axis,
-    Tooltip,
-    Coord,
-    Label,
-    Legend,
-    View,
-    Guide,
-    Shape,
-    Facet,
-    Util
+    Tooltip
 } from 'bizcharts'
 
 
 const Dashboard = inject('store')(observer((props) =>{
     const [loading, setLoading] = useState(true)
-
     useEffect(() => {
         setLoading(false)
         return () => {}
@@ -80,9 +70,9 @@ const Dashboard = inject('store')(observer((props) =>{
                         <div className='gutter-box'>col-6</div>
                     </Col>
                 </Row>
-                <Row gutter={16}>
-                    <Col className='gutter-row' span={8}>
-                        <Card title='Card title' style={{borderRadius:'10px', width:'570px'}}>
+                <Row gutter={24}>
+                    <Col xs={24} sm={24} md={12} lg={12} xl={12} className='gutter-row'>
+                        <Card style={{borderRadius:'10px'}}>
                             <Chart padding="auto" height={278} data={data} scale={cols} forceFit>
                                 <Axis name='year' />
                                 <Axis name='value' />
@@ -105,11 +95,8 @@ const Dashboard = inject('store')(observer((props) =>{
                             </Chart>
                         </Card>
                     </Col>
-                    <Col className='gutter-row' span={8}>
-                        <div className='gutter-box'>col-6</div>
-                    </Col>
-                    <Col className='gutter-row' span={8}>
-                        <div className='gutter-box'>col-6</div>
+                    <Col xs={24} sm={24} md={12} lg={12} xl={12} className='gutter-row' span={12}>
+                        <div className='gutter-box'>sdad</div>
                     </Col>
                 </Row>
             </div>
