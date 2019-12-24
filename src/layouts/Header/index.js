@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Layout, Icon, Badge, Avatar, Popover } from 'antd'
 import { useHistory } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
