@@ -20,10 +20,6 @@ const DrawerWrapper = inject('store')(observer((props) =>{
                     className={`${style.drawer} ${store.dark?style.dark:''}`}
                 >
                     <Row>
-                        <div className={style.column}>
-                            <div className={style.title}>主题</div>
-                            <div><Switch defaultChecked /></div>
-                        </div>
                         <div className={style.row}>
                             <div>切换模式</div>
                             <div><Switch defaultChecked onClick={()=>{ store.setDark()}} /></div>
