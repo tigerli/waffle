@@ -1,6 +1,6 @@
-import { G2 } from 'bizcharts'
 import { observable, action } from 'mobx'
-const { Global } = G2 // 获取 Global 全局对象
+import dark from '@/styles/theme/dark'
+import light from '@/styles/theme/light'
 class System{
    
     @observable dark = false
@@ -14,9 +14,10 @@ class System{
         this.dark = !this.dark
         if(this.dark){
             this.theme = 'dark'
-            // Global.setTheme('dark')
+            //window.less.modifyVars(dark)
         }else{
             this.theme = 'light'
+            //window.less.modifyVars(light)
         }
     }
     @action

@@ -2,6 +2,8 @@ import React from 'react'
 import { Drawer, Row, Switch } from 'antd'
 import { inject, observer } from 'mobx-react'
 import style from './index.module.less'
+import { CirclePicker } from 'react-color'
+
 
 const DrawerWrapper = inject('store')(observer((props) =>{
     let {store} = props
@@ -29,12 +31,7 @@ const DrawerWrapper = inject('store')(observer((props) =>{
                         <div className={style.row}>
                             <div>切换主题</div>
                             <div>
-                                <span onClick={()=>{window.less.modifyVars({'@primary-color': '#ff5918'})}}>
-                                    红
-                                </span>
-                                <span onClick={()=>{window.less.modifyVars({'@primary-color': '#aa6618'})}}>
-                                    蓝
-                                </span>
+                                <CirclePicker />
                             </div>
                         </div>
                         {/* <Col span={24} className={style.title}>主题</Col>
