@@ -8,6 +8,7 @@ const {
 const AntDesignThemePlugin = require('antd-theme-webpack-plugin')
 const path = require('path')
 
+
 const options = {
     antDir: path.join(__dirname, './node_modules/antd'), // antd包位置
     stylesDir: path.join(__dirname, './src/styles'), //主题文件所在文件夹
@@ -15,13 +16,16 @@ const options = {
     //mainLessFile: path.join(__dirname, './src/styles/index.less'), // 项目中其他自定义的样式（如果不需要动态修改其他样式，该文件可以为空）
     outputFilePath: path.join(__dirname, './public/color.less'), //提取的less文件输出到什么地方
     themeVariables: [
-        '@primary-color'
+        '@primary-color',
+        '@layout-header-background',
+        '@layout-sider-background',
+        '@layout-trigger-background',
+        '@layout-body-background'
     ], //要改变的主题变量
     indexFileName: './public/index.html', // index.html所在位置
     lessUrl: 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js',
     generateOnce: false // 是否只生成一次
 }
-
 const addTheme = () => (config) => {
     config.plugins.push(new AntDesignThemePlugin(options))
     return config
