@@ -16,9 +16,9 @@ const options = {
     //mainLessFile: path.join(__dirname, './src/styles/index.less'), // 项目中其他自定义的样式（如果不需要动态修改其他样式，该文件可以为空）
     outputFilePath: path.join(__dirname, './public/color.less'), //提取的less文件输出到什么地方
     themeVariables: [
-        '@primary-color',
-        '@text-color', // 背景字体颜色
-        '@heading-color' // 各个组件头部字体颜色
+        '@primary-color'
+        // '@text-color', // 背景字体颜色
+        // '@heading-color' // 各个组件头部字体颜色
     ], //要改变的主题变量
     indexFileName: './public/index.html', // index.html所在位置
     lessUrl: 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js',

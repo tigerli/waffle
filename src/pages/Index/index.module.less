@@ -30,9 +30,9 @@
         .ant-menu-vertical .ant-menu-item:not(:last-child), .ant-menu-inline .ant-menu-item:not(:last-child) {
             margin-bottom: 0;
         }
-        .ant-menu-vertical .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title,.ant-menu-inline .ant-menu-item{
-            margin-top: 0;
-        }
+        // .ant-menu-vertical .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title,.ant-menu-inline .ant-menu-item{
+        //     margin-top: 0;
+        // }
         // less 编译导致antd 样式 ~"100%/100%" 计算错误，重新覆盖
         .ant-back-top-icon {
             width: 14px;
@@ -52,7 +52,10 @@
         .ant-menu-dark, .ant-layout-header, .ant-layout-sider{
             background-color: #1f2024;
         }
-        .ant-menu-dark .ant-menu-inline .ant-menu-sub{
+        .ant-menu-dark .ant-menu-inline.ant-menu-sub{
+            background-color: #000;
+        }
+        .ant-menu-dark .ant-menu-sub{
             background-color: #000;
         }
         .ant-layout-sider, .ant-menu-dark.ant-menu-vertical{

@@ -1,4 +1,5 @@
-import React, {useMemo} from 'react'
+import React, { useMemo, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import {  Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
@@ -7,12 +8,15 @@ const { SubMenu } = Menu
 
 const MenuWrapper = inject('store')(observer((props) =>{
     let {store, routers} = props
-    let index = 0
+    let location = useLocation()
+    let [subItem, setSubItem] = useState()
+    useMemo(() => {
+        setSubItem(location.pathname.split('/').slice(0, 3).join('/'))
+    }, [location])
 
     useMemo(() => {
         return routers
     }, [routers])
-
     return (
         <>
             <div style={{flex:'0 0 200px', height:'64px'}}>
@@ -21,15 +25,17 @@ const MenuWrapper = inject('store')(observer((props) =>{
             </div>
             <Menu 
                 mode={`${store.mode}`} 
-                theme={`${store.theme}`} 
-                defaultSelectedKeys="1"
+                theme={`${store.theme}`}
+                selectedKeys={[location.pathname]}
+                openKeys={[subItem]}
+                onOpenChange={(openKeys)=>{ setSubItem(openKeys[1])}}
+                forceSubMenuRender={true}
             >
                 {   
                     routers.map((route) => {
-                        ++index
                         if(isEmpty(route.children)){
                             return (
-                                <Menu.Item key={`${index}`}>
+                                <Menu.Item key={`${route.path}`}>
                                     <Link to={route.path}>
                                         <Icon type={route.icon}/>
                                         <span>{route.title}</span>
@@ -39,9 +45,8 @@ const MenuWrapper = inject('store')(observer((props) =>{
                         }else{
                             let items = []
                             route.children.map((r) => {
-                                ++index
                                 items.push(
-                                    <Menu.Item key={index}>
+                                    <Menu.Item key={r.path}>
                                         <Link to={r.path}>
                                             {
                                                 isEmpty(r.icon)?'':<Icon type={r.icon}/>
@@ -50,10 +55,10 @@ const MenuWrapper = inject('store')(observer((props) =>{
                                         </Link>
                                     </Menu.Item>
                                 )
-                                return index
+                                return ''
                             })
                             return (
-                                <SubMenu key={`sub${index}`} title={
+                                <SubMenu key={`${route.path}`} title={
                                     <span>
                                         <Icon type={route.icon} />
                                         <span>{route.title}</span>
