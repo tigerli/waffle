@@ -1,7 +1,7 @@
-import store from './system'
+import system from './system'
 import user from './user'
 
 export default {
-    store,
+    system,
     user
 }

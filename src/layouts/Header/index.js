@@ -3,26 +3,24 @@ import { Layout, Icon, Badge, Avatar, Popover } from 'antd'
 import { useHistory } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { useMediaQuery } from 'react-responsive'
-import { setToken } from '@utils/auth'
+import { removeToken } from '@utils/auth'
 import style from './index.module.less'
 const { Header } = Layout
 
-const HeaderWrapper = inject('store', 'user')(observer((props) =>{
+const HeaderWrapper = inject('system', 'user')(observer((props) =>{
     let history = useHistory()
-    let {store, user} = props
+    let {system, user} = props
 
     const isMobile = useMediaQuery({
         query: '(max-device-width: 991px)'
     })
 
     const onClickLogout = ()=>{
-        setToken('')
+        removeToken()
         history.push('/login')
     }
     const userPopover = (
         <div className={style.userPopover}>
-            <div><Icon type="logout" /><span>退出</span></div>
-            <div><Icon type="logout" /><span>退出</span></div>
             <div onClick={onClickLogout}><Icon type="logout" /><span>退出</span></div>
         </div>
     )
@@ -35,7 +33,7 @@ const HeaderWrapper = inject('store', 'user')(observer((props) =>{
                         :
                         <div className={style.header}>
                             <div>
-                                <Icon type={store.collapsed?'menu-unfold':'menu-fold'} className={style.menu_icon} onClick={()=>{store.setCollapsed()}} />
+                                <Icon type={system.collapsed?'menu-unfold':'menu-fold'} className={style.menu_icon} onClick={()=>{system.setCollapsed()}} />
                             </div>
                             <div>
                                 <div>
@@ -55,7 +53,7 @@ const HeaderWrapper = inject('store', 'user')(observer((props) =>{
                                     </Popover>
                                 </div>
                                 <div>
-                                    <Icon type="align-left" className={style.icon} onClick={()=>{store.setDrawer()}} />
+                                    <Icon type="align-left" className={style.icon} onClick={()=>{system.setDrawer()}} />
                                 </div>
                                 
                             </div>

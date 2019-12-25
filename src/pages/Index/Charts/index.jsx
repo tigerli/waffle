@@ -379,7 +379,7 @@ const Stackedcolumn = ()=>{
         </>
     )
 }
-const Charts = inject('store')(observer((props) =>{
+const Charts = inject('system')(observer((props) =>{
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         setLoading(false)

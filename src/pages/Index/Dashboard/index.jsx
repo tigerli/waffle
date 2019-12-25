@@ -9,7 +9,7 @@ import {
 } from 'bizcharts'
 
 
-const Dashboard = inject('store')(observer((props) =>{
+const Dashboard = inject('system')(observer((props) =>{
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         setLoading(false)
