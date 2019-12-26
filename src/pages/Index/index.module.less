@@ -1,7 +1,9 @@
 @import '../../styles/variables.less';
 
 .app{
-    background: #f8f8fb;
+    //@text-color: rgba(255, 255, 255, 0.65);
+    @bg: #fff;
+    //color: @text-color;
     :global {
         .ant-layout{
             width: 100vw;
@@ -11,11 +13,11 @@
         .ant-layout-header{
             transition: color 1s;
             padding: 0;
-            background-color: #ffffff;
+            background-color: @bg;
         }
         .ant-layout-sider{
             transition: color 1s;
-            background-color: #ffffff;
+            background-color: @bg;
             border-right: 1px solid #e2e2ea;
         }
         .ant-layout-content{
@@ -44,20 +46,29 @@
 }
 
 .dark{
-    color: @dark-color;
+    @text-color: rgba(255, 255, 255, 0.86);
+    color: @text-color;
+    
     :global {
+       
+        
+        // 组件样式覆盖
+        .ant-card {
+            background-color: #1f2024;
+            &>.ant-card-head, &>.ant-card-body{
+                color: @text-color;
+            }
+        }
         .ant-layout-content{
             background-color: #222327;
         }
         .ant-menu-dark, .ant-layout-header, .ant-layout-sider{
-            background-color: #1f2024;
+            background-color: #1f2024 !important;
         }
-        .ant-menu-dark .ant-menu-inline.ant-menu-sub{
-            background-color: #000;
+        .ant-menu-sub, .ant-menu-dark .ant-menu-inline.ant-menu-sub{
+            background-color:#000 !important;
         }
-        .ant-menu-dark .ant-menu-sub{
-            background-color: #000;
-        }
+
         .ant-layout-sider, .ant-menu-dark.ant-menu-vertical{
             border-right: 1px solid #2b2c31;
         }

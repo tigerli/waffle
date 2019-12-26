@@ -15,10 +15,8 @@ class System{
         this.dark = !this.dark
         if(this.dark){
             this.theme = 'dark'
-            //window.less.modifyVars(dark)
         }else{
             this.theme = 'light'
-            //window.less.modifyVars(light)
         }
     }
     @action
