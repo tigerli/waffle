@@ -9,6 +9,7 @@ class System{
     @observable mode = 'inline'
     @observable theme = 'light'
     @observable primary = '#2196f3'
+    @observable locale = 'zh_CN'
 
     @action
     setDark = () => {
@@ -30,6 +31,10 @@ class System{
     @action
     setPrimary = (color) => {
         this.primary = color
+    }
+    @action
+    setLocale = (locale) => {
+        this.locale = locale
     }
 }
   

@@ -9,8 +9,8 @@ const basePath = '/home/'
 const Routers = [
     {
         path: basePath+'dashboard',
-        title: 'Dashboard',
-        icon: 'bar-chart',
+        title: '仪表盘',
+        icon: 'dashboard',
         component: Dashboard
     },
     {
@@ -21,13 +21,13 @@ const Routers = [
     },
     {
         path: basePath+'demo',
-        title: 'Demo',
+        title: '测试',
         icon: 'bar-chart',
         children: Demo
     },
     {
         path: basePath+'element',
-        title: 'element',
+        title: '元素',
         icon: 'build',
         children: Element
     }

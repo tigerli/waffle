@@ -8,8 +8,7 @@ import {
     Tooltip
 } from 'bizcharts'
 
-
-const Dashboard = inject('system')(observer((props) =>{
+const Dashboard = inject('system')(observer(() =>{
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         setLoading(false)

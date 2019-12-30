@@ -1,14 +1,13 @@
 import React from 'react'
-import { Drawer, Row, Switch } from 'antd'
+import { Drawer, Row, Switch, Icon } from 'antd'
 import { inject, observer } from 'mobx-react'
 import style from './index.module.less'
 import { CirclePicker } from 'react-color'
-
+import Languages from '@components/Languages'
 
 const DrawerWrapper = inject('system')(observer((props) =>{
     let {system} = props
     let primary = (color)=>{
-        console.log(system)
         system.setPrimary(color.hex)
         window.less.modifyVars({'@primary-color': color.hex})
     }
@@ -25,24 +24,21 @@ const DrawerWrapper = inject('system')(observer((props) =>{
                 >
                     <Row>
                         <div className={style.row}>
-                            <div>切换模式</div>
+                            <div>模式</div>
                             <div><Switch defaultChecked onClick={()=>{ system.setDark()}} /></div>
                         </div>
                         <div className={style.row}>
-                            <div>切换主题</div>
+                            <div>主题</div>
                             <div>
-                                {/* ()=>{} */}
                                 <CirclePicker color={system.primary} onChangeComplete={ primary }/>
                             </div>
                         </div>
-                        {/* <Col span={24} className={style.title}>主题</Col>
-                        <Col span={24}>
-                            s
-                        </Col>
-                        <Row>
-                            <Col span={12}><span>切换模式</span> </Col>
-                            <Col span={12} push={8}><Switch defaultChecked /></Col>
-                        </Row> */}
+                        <div className={style.row}>
+                            <div>语言</div>
+                            <div>
+                                <Languages />
+                            </div>
+                        </div>
                     </Row>
                 </Drawer>
             </div>

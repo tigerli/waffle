@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Spin } from 'antd'
 
-function Accordion() {
+function DatePickers() {
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         setLoading(false)
@@ -11,9 +11,9 @@ function Accordion() {
     return (
         <Spin spinning={loading} tip="Loading...">
             <div className='container'>
-                Accordion
+                DatePicker
             </div>
         </Spin>
     )
 }
-export default Accordion
+export default DatePickers
