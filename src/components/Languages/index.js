@@ -19,14 +19,6 @@ const Languages = inject('system')(observer((props) =>{
                     <IconFont type="icon-yingguo" className={`${style.icon}` } />
                     <div className={`${system.locale == 'en_GB'?style.selected:''}`}></div>
                 </div>
-                <div onClick={()=>{setLocale('en_US')}}>
-                    <IconFont type="icon-americaq" className={`${style.icon}`} />
-                    <div className={`${system.locale == 'en_US'?style.selected:''}`}></div>
-                </div>
-                <div onClick={()=>{setLocale('ja_JP')}}>
-                    <IconFont type="icon-japan" className={`${style.icon}`} />
-                    <div className={`${system.locale == 'ja_JP'?style.selected:''}`}></div>
-                </div>
                 <div onClick={()=>{setLocale('zh_CN')}}>
                     <IconFont type="icon-china" className={`${style.icon}`} />
                     <div className={`${system.locale == 'zh_CN'?style.selected:''}`}></div>

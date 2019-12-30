@@ -10,6 +10,7 @@ class System{
     @observable theme = 'light'
     @observable primary = '#2196f3'
     @observable locale = 'zh_CN'
+    @observable lang = 'zh'
 
     @action
     setDark = () => {
@@ -35,6 +36,10 @@ class System{
     @action
     setLocale = (locale) => {
         this.locale = locale
+    }
+    @action
+    setLang = (lang) => {
+        this.lang = lang
     }
 }
   
