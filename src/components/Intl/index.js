@@ -9,7 +9,7 @@ const Intl = inject('system')(observer((props) =>{
     
     return (
         <>
-            <IntlProvider locale={system.locale.split('_')[0]} messages={messages[system.locale.split('_')[0]]}>
+            <IntlProvider locale={system.locale.split('_')[0]} messages={messages[system.locale]}>
                 {props.children}
             </IntlProvider>
         </>

@@ -9,25 +9,25 @@ const basePath = '/home/'
 const Routers = [
     {
         path: basePath+'dashboard',
-        title: '仪表盘',
+        title: 'dashboard',
         icon: 'dashboard',
         component: Dashboard
     },
     {
         path: basePath+'charts',
-        title: '图表',
+        title: 'chart',
         icon: 'pie-chart',
         component: Charts
     },
     {
         path: basePath+'demo',
-        title: '测试',
+        title: 'demo',
         icon: 'bar-chart',
         children: Demo
     },
     {
         path: basePath+'element',
-        title: '元素',
+        title: 'element',
         icon: 'build',
         children: Element
     }

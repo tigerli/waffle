@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { isEmpty } from '@library/utils/validate'
 import style from './index.module.less'
+import { FormattedMessage as Message } from 'react-intl' /* react-intl imports */
+
 const { SubMenu } = Menu
 
 const MenuWrapper = inject('system')(observer((props) =>{
@@ -39,7 +41,7 @@ const MenuWrapper = inject('system')(observer((props) =>{
                                     <Menu.Item key={`${route.path}`}>
                                         <Link to={route.path}>
                                             <Icon type={route.icon}/>
-                                            <span>{route.title}</span>
+                                            <span><Message id={route.title}/></span>
                                         </Link>
                                     </Menu.Item>
                                 )
@@ -52,7 +54,7 @@ const MenuWrapper = inject('system')(observer((props) =>{
                                                 {
                                                     isEmpty(r.icon)?'':<Icon type={r.icon}/>
                                                 }
-                                                <span>{r.title}</span>
+                                                <span><Message id={r.title}/></span>
                                             </Link>
                                         </Menu.Item>
                                     )
@@ -62,7 +64,7 @@ const MenuWrapper = inject('system')(observer((props) =>{
                                     <SubMenu key={`${route.path}`} title={
                                         <span>
                                             <Icon type={route.icon} />
-                                            <span>{route.title}</span>
+                                            <span><Message id={route.title}/></span>
                                         </span>
                                     }>
                                         {items}
