@@ -3,12 +3,12 @@ const {
     addDecoratorsLegacy, 
     fixBabelImports, 
     addLessLoader, 
-    addWebpackAlias,
-    addWebpackPlugin
+    addWebpackAlias
+    // addWebpackPlugin
 } = require('customize-cra')
 const AntDesignThemePlugin = require('antd-theme-webpack-plugin')
 const path = require('path')
-const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
+// const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
 
 
 const options = {
@@ -31,7 +31,9 @@ const addTheme = () => (config) => {
 
 module.exports = override(
     // 使用 Day.js 替换 momentjs 优化打包大小
-    addWebpackPlugin(new AntdDayjsWebpackPlugin()),
+    // addWebpackPlugin(
+
+    // ),
     // 装饰器语法
     addDecoratorsLegacy(),
     // 自动加载antd

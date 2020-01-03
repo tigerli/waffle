@@ -8,25 +8,25 @@ const Icons = React.lazy(() => import('@pages/Index/Elements/Icons'))
 const Demo = [
     {
         path: '/accordion',
-        title: '手风琴',
+        title: 'accordion',
         icon: 'pic-center',
         component: Accordion
     },
     {
         path: '/paginations',
-        title: '页码',
+        title: 'paginations',
         icon: 'pic-center',
         component: Paginations
     },
     {
         path: '/datePickers',
-        title: '日期选择框',
+        title: 'datePickers',
         icon: 'calendar',
         component: DatePickers
     },
     {
         path: '/icons',
-        title: '图标',
+        title: 'icons',
         icon: 'smile',
         component: Icons
     }
