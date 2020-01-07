@@ -2,19 +2,12 @@ import React, { useState, useEffect} from 'react'
 import { inject, observer } from 'mobx-react'
 import { Spin, Row, Col, Card } from 'antd'
 import {
-    G2,
     Chart,
     Geom,
     Axis,
     Tooltip,
     Coord,
-    Label,
-    Legend,
-    View,
-    Guide,
-    Shape,
-    Facet,
-    Util
+    Legend
 } from 'bizcharts'
 import DataSet from '@antv/data-set'
   

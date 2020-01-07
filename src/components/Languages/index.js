@@ -17,11 +17,11 @@ const Languages = inject('system')(observer((props) =>{
             <div className={style.languages}>
                 <div onClick={()=>{setLocale('en_GB')}}>
                     <IconFont type="icon-yingguo" className={`${style.icon}` } />
-                    <div className={`${system.locale == 'en_GB'?style.selected:''}`}></div>
+                    <div className={`${system.locale === 'en_GB'?style.selected:''}`}></div>
                 </div>
                 <div onClick={()=>{setLocale('zh_CN')}}>
                     <IconFont type="icon-china" className={`${style.icon}`} />
-                    <div className={`${system.locale == 'zh_CN'?style.selected:''}`}></div>
+                    <div className={`${system.locale === 'zh_CN'?style.selected:''}`}></div>
                 </div>
             </div>
         </>

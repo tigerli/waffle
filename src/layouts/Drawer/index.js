@@ -1,5 +1,5 @@
 import React from 'react'
-import { Drawer, Row, Switch, Icon } from 'antd'
+import { Drawer, Row, Switch } from 'antd'
 import { inject, observer } from 'mobx-react'
 import style from './index.module.less'
 import { CirclePicker } from 'react-color'

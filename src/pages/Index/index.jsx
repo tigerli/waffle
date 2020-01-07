@@ -16,7 +16,7 @@ import Routers from '@library/routes'
 const { Sider } = Layout
 
 let Index = inject('system')(observer((props) => {
-    const [routers, setRouters] = useState([])
+    const [routers, setRouters] = useState(Routers)
     let history = useHistory()
     // const isMobile = useMediaQuery({
     //     query: '(max-device-width: 991px)'

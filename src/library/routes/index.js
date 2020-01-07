@@ -1,5 +1,4 @@
 import React from 'react'
-import Demo from '@library/routes/modules/Demo'
 import Element from '@library/routes/modules/Element'
 
 const Dashboard = React.lazy(() => import('@pages/Index/Dashboard'))
@@ -20,19 +19,11 @@ const Routers = [
         component: Charts
     },
     {
-        path: basePath+'demo',
-        title: 'demo',
-        icon: 'bar-chart',
-        children: Demo
-    },
-    {
         path: basePath+'element',
         title: 'element',
         icon: 'build',
         children: Element
     }
-
-
 ]
 
 export default Routers
