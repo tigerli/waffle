@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### mock 使用 [rap2](http://rap2.taobao.org/).
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />

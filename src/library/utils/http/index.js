@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === 'production') {
     axios.defaults.baseURL = 'https://www.baidu.com'
 }else{
     axios.defaults.baseURL = 'http://localhost:3023'
+    //axios.defaults.baseURL = 'http://rap2api.taobao.org/app/mock/242047'
 }
 
 // 请求超时时间

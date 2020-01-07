@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import {  Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
@@ -13,13 +13,17 @@ const MenuWrapper = inject('system')(observer((props) =>{
     let {system, routers} = props
     let location = useLocation()
     let [subItem, setSubItem] = useState()
+
+    useEffect(() => {
+        console.log(routers)
+        return () => {
+        }
+    }, [routers])
+    
     useMemo(() => {
         setSubItem(location.pathname.split('/').slice(0, 3).join('/'))
     }, [location])
-    console.log(location.pathname)
-    useMemo(() => {
-        return routers
-    }, [routers])
+
     return (
         <>
             <div className={style.menu}>
@@ -70,7 +74,6 @@ const MenuWrapper = inject('system')(observer((props) =>{
                                     </SubMenu>
                                 )
                             }
-                            
                         })
                     }
                 </Menu>

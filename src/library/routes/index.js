@@ -4,22 +4,21 @@ import Element from '@library/routes/modules/Element'
 const Dashboard = React.lazy(() => import('@pages/Index/Dashboard'))
 const Charts = React.lazy(() => import('@pages/Index/Charts'))
 
-const basePath = '/home/'
 const Routers = [
     {
-        path: basePath+'dashboard',
+        path: '/home/dashboard',
         title: 'dashboard',
         icon: 'dashboard',
         component: Dashboard
     },
     {
-        path: basePath+'charts',
+        path: '/home/charts',
         title: 'chart',
         icon: 'pie-chart',
         component: Charts
     },
     {
-        path: basePath+'element',
+        path: '/home/element',
         title: 'element',
         icon: 'build',
         children: Element
