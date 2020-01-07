@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 if (process.env.NODE_ENV === 'production') {
-    axios.defaults.baseURL = 'https://www.baidu.com';
+    axios.defaults.baseURL = 'https://www.baidu.com'
 }else{
-    axios.defaults.baseURL = 'https://www.production.com';
+    axios.defaults.baseURL = 'https://www.production.com'
 }   
 
 let loadingInstance = null //这里是loading

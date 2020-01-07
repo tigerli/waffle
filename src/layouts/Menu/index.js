@@ -16,7 +16,7 @@ const MenuWrapper = inject('system')(observer((props) =>{
     useMemo(() => {
         setSubItem(location.pathname.split('/').slice(0, 3).join('/'))
     }, [location])
-
+    console.log(location.pathname)
     useMemo(() => {
         return routers
     }, [routers])
@@ -24,7 +24,6 @@ const MenuWrapper = inject('system')(observer((props) =>{
         <>
             <div className={style.menu}>
                 <div className={style.logo}>
-
                 </div>
                 <Menu 
                     mode={`${system.mode}`} 

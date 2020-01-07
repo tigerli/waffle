@@ -64,11 +64,6 @@ const Dashboard = inject('system')(observer(() =>{
     return (
         <Spin spinning={loading} tip='Loading...'>
             <div className='container'>
-                <Row gutter={16}>
-                    <Col className='gutter-row' span={18}>
-                        <div className='gutter-box'>col-6</div>
-                    </Col>
-                </Row>
                 <Row gutter={24}>
                     <Col xs={24} sm={24} md={12} lg={12} xl={12} className='gutter-row'>
                         <Card style={{borderRadius:'10px'}}>
@@ -93,9 +88,6 @@ const Dashboard = inject('system')(observer(() =>{
                                 />
                             </Chart>
                         </Card>
-                    </Col>
-                    <Col xs={24} sm={24} md={12} lg={12} xl={12} className='gutter-row' span={12}>
-                        <div className='gutter-box'>sdad</div>
                     </Col>
                 </Row>
             </div>
