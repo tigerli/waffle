@@ -24,6 +24,11 @@ const HeaderWrapper = inject('system', 'user')(observer((props) =>{
             <div onClick={onClickLogout}><Icon type="logout" /><span>退出</span></div>
         </div>
     )
+    const messagePopover = (
+        <div className={style.userPopover}>
+            <div onClick={onClickLogout}><Icon type="logout" /><span>退出</span></div>
+        </div>
+    )
     return (
         <>
             <Header>
@@ -41,7 +46,9 @@ const HeaderWrapper = inject('system', 'user')(observer((props) =>{
                                 </div>
                                 <div>
                                     <Badge dot>
-                                        <Icon type="bell" className={style.icon} />
+                                        <Popover placement="bottomRight" content={messagePopover}>
+                                            <Icon type="bell" className={style.icon} />
+                                        </Popover>
                                     </Badge>
                                 </div>
                                 

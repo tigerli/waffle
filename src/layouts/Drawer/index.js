@@ -4,6 +4,7 @@ import { inject, observer } from 'mobx-react'
 import style from './index.module.less'
 import { CirclePicker } from 'react-color'
 import Languages from '@components/Languages'
+import { FormattedMessage as Message } from 'react-intl' 
 
 const DrawerWrapper = inject('system')(observer((props) =>{
     let {system} = props
@@ -15,7 +16,7 @@ const DrawerWrapper = inject('system')(observer((props) =>{
         <>
             <div>
                 <Drawer
-                    title="设置"
+                    title={<Message id='setting'/>}
                     width={380}
                     onClose={system.setDrawer}
                     visible={system.drawer}
@@ -24,17 +25,17 @@ const DrawerWrapper = inject('system')(observer((props) =>{
                 >
                     <Row>
                         <div className={style.row}>
-                            <div>模式</div>
+                            <div><Message id='model'/></div>
                             <div><Switch defaultChecked onClick={()=>{ system.setDark()}} /></div>
                         </div>
                         <div className={style.row}>
-                            <div>主题</div>
+                            <div><Message id='themes'/></div>
                             <div>
                                 <CirclePicker color={system.primary} onChangeComplete={ primary }/>
                             </div>
                         </div>
                         <div className={style.row}>
-                            <div>语言</div>
+                            <div><Message id='languages'/></div>
                             <div>
                                 <Languages />
                             </div>

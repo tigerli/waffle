@@ -7,6 +7,10 @@ const enUS = {
     icons: 'Icons',
     accordion: 'Accordion',
     paginations: 'Paginations',
-    datePickers: 'DatePickers'
+    datePickers: 'DatePickers',
+    setting: 'Setting',
+    themes: 'Themes',
+    model: 'Model',
+    languages: 'Languages'
 }
 export default enUS

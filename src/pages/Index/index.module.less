@@ -55,13 +55,26 @@
     @component-bg: #1f2024;
     :global {
         // 组件样式覆盖
+        // 卡片
         .ant-card {
-            background-color: #1f2024;
+            background-color: @component-bg;
             &>.ant-card-head, &>.ant-card-body{
                 color: @text-color;
             }
         }
-
+        // 折叠面板
+        .ant-collapse{
+            background-color: @component-bg;
+            &> .ant-collapse-item{
+                &>.ant-collapse-header{
+                    color: @text-color;
+                }
+            }
+        }
+        .ant-collapse-content{
+            background-color: @component-bg;
+            color: @text-color;
+        }
         // 公共页面样式覆盖
         .ant-layout-content{
             background-color: #222327;
