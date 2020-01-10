@@ -1,8 +1,9 @@
 import { observable, action } from 'mobx'
-// import dark from '@/styles/theme/dark'
-// import light from '@/styles/theme/light'
+
 class System{
-   
+    // constructor() {
+        
+    // }
     @observable dark = false
     @observable collapsed = false
     @observable drawer = false

@@ -11,7 +11,7 @@ const BreadcrumbWrapper = inject('system')(observer((props) =>{
     let pathname = location.pathname.split('/')
     return (
         <>
-            <div className={`${style.breadcrumb} ${system.dark?style.dark:''}`}>
+            <div className={`${style.breadcrumb}`}>
                 <div>{<Message id={pathname[pathname.length-1]}/>}</div>
                 <Breadcrumb separator=">">
                     {

@@ -6,22 +6,18 @@ const {
     addWebpackAlias
     // addWebpackPlugin
 } = require('customize-cra')
+const themeVariables = require('./src/styles/theme/themeVariables')
 const AntDesignThemePlugin = require('antd-theme-webpack-plugin')
 const path = require('path')
-// const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin')
-
 
 const options = {
     antDir: path.join(__dirname, './node_modules/antd'), // antd包位置
     stylesDir: path.join(__dirname, './src/styles'), //主题文件所在文件夹
-    varFile: path.join(__dirname, './src/styles/variables.less'), // 自定义默认的主题色
-    //mainLessFile: path.join(__dirname, './src/styles/index.less'), // 项目中其他自定义的样式（如果不需要动态修改其他样式，该文件可以为空）
+    varFile: path.join(__dirname, './src/styles/vars.less'), // 自定义默认的主题色
+    mainLessFile: path.join(__dirname, './src/styles/main.less'), // 项目中其他自定义的样式（如果不需要动态修改其他样式，该文件可以为空）
     outputFilePath: path.join(__dirname, './public/color.less'), //提取的less文件输出到什么地方
-    themeVariables: [
-        '@primary-color'
-    ], //要改变的主题变量
+    themeVariables: themeVariables, //要改变的主题变量
     indexFileName: './public/index.html', // index.html所在位置
-    lessUrl: 'https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js',
     generateOnce: false // 是否只生成一次
 }
 const addTheme = () => (config) => {
@@ -55,6 +51,7 @@ module.exports = override(
         '@utils': path.resolve(__dirname, 'src/library/utils'),
         '@pages': path.resolve(__dirname, 'src/pages'),
         '@store': path.resolve(__dirname, 'src/store'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
         '@components': path.resolve(__dirname, 'src/components'),
         '@http': path.resolve(__dirname, 'src/library/utils/http')
     }),

@@ -1,28 +1,7 @@
-@import '../../styles/variables.less';
+@import '../../styles/main.less';
 
 .app{
-    //@text-color: rgba(255, 255, 255, 0.65);
-    @bg: #fff;
-    //color: @text-color;
     :global {
-        .ant-layout{
-            width: 100vw;
-            height: 100%;
-            min-height: 100vh;
-        }
-        .ant-layout-header{
-            transition: color 1s;
-            padding: 0;
-            background-color: @bg;
-        }
-        .ant-layout-sider{
-            transition: color 1s;
-            background-color: @bg;
-            border-right: 1px solid #e2e2ea;
-        }
-        .ant-layout-content{
-            transition: color 1s;
-        }
         .ant-menu-inline{
             border-right: none;
         }
@@ -45,51 +24,6 @@
             height: 16px;
             margin: 12px auto;
             background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAoCAYAAACWwljjAAAABGdBTUEAALGPC/xhBQAAAbtJREFUWAntmMtKw0AUhhMvS5cuxILgQlRUpIggIoKIIoigG1eC+AA+jo+i6FIXBfeuXIgoeKVeitVWJX5HWhhDksnUpp3FDPyZk3Nm5nycmZKkXhAEOXSA3lG7muTeRzmfy6HneUvIhnYkQK+Q9NhAA0Opg0vBEhjBKHiyb8iGMyQMOYuK41BcBSypAL+MYXSKjtFAW7EAGEO3qN4uMQbbAkXiSfRQJ1H6a+yhlkKRcAoVFYiweYNjtCVQJJpBz2GCiPt7fBOZQpFgDpUikse5HgnkM4Fi4QX0Fpc5wf9EbLqpUCy4jMoJSXWhFwbMNgWKhVbRhy5jirhs9fy/oFhgHVVTJEs7RLZ8sSEoJm6iz7SZDMbJ+/OKERQTttCXQRLToRUmrKWCYuA2+jbN0MB4OQobYShfdTCgn/sL1K36M7TLrN3n+758aPy2rrpR6+/od5E8tf/A1uLS9aId5T7J3CNYihkQ4D9PiMdMC7mp4rjB9kjFjZp8BlnVHJBuO1yFXIV0FdDF3RlyFdJVQBdv5AxVdIsq8apiZ2PyYO1EVykesGfZEESsCkweyR8MUW+V8uJ1gkYipmpdP1pm2aJVPEGzAAAAAElFTkSuQmCC) ~"100%/100%" no-repeat;
-        }
-    }
-}
-
-.dark{
-    @text-color: rgba(255, 255, 255, 0.86);
-    color: @text-color;
-    @component-bg: #1f2024;
-    :global {
-        // 组件样式覆盖
-        // 卡片
-        .ant-card {
-            background-color: @component-bg;
-            &>.ant-card-head, &>.ant-card-body{
-                color: @text-color;
-            }
-        }
-        // 折叠面板
-        .ant-collapse{
-            background-color: @component-bg;
-            &> .ant-collapse-item{
-                &>.ant-collapse-header{
-                    color: @text-color;
-                }
-            }
-        }
-        .ant-collapse-content{
-            background-color: @component-bg;
-            color: @text-color;
-        }
-        // 公共页面样式覆盖
-        .ant-layout-content{
-            background-color: #222327;
-        }
-        .ant-menu-dark, .ant-layout-header, .ant-layout-sider{
-            background-color: #1f2024 !important;
-        }
-        .ant-menu-sub, .ant-menu-dark .ant-menu-inline.ant-menu-sub{
-            background-color:#000 !important;
-        }
-        .ant-layout-sider, .ant-menu-dark.ant-menu-vertical{
-            border-right: 1px solid #2b2c31;
-        }
-        .ant-menu-inline{
-            border-right: none;
         }
     }
 }

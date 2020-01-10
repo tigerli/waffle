@@ -15,7 +15,6 @@ const MenuWrapper = inject('system')(observer((props) =>{
     let [subItem, setSubItem] = useState()
 
     useEffect(() => {
-        console.log(routers)
         return () => {
         }
     }, [routers])
@@ -30,11 +29,15 @@ const MenuWrapper = inject('system')(observer((props) =>{
                 <div className={style.logo}>
                 </div>
                 <Menu 
-                    mode={`${system.mode}`} 
+                    // defaultSelectedKeys={['1']}
+                    // defaultOpenKeys={['sub1']}
+                 
+                    // inlineCollapsed={false}
+                    mode={`${system.collapsed ? 'vertical' : 'inline'}`} 
                     theme={`${system.theme}`}
                     selectedKeys={[location.pathname]}
                     openKeys={[subItem]}
-                    onOpenChange={(openKeys)=>{ setSubItem(openKeys[1])}}
+                    onOpenChange={(openKeys)=>{ setSubItem(openKeys[1]) }}
                     forceSubMenuRender={true}
                 >
                     {   

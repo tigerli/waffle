@@ -3,6 +3,7 @@ import { Drawer, Row, Switch } from 'antd'
 import { inject, observer } from 'mobx-react'
 import style from './index.module.less'
 import { CirclePicker } from 'react-color'
+import { modifyVars, modifyModel } from '@library/utils/modifyVars'
 import Languages from '@components/Languages'
 import { FormattedMessage as Message } from 'react-intl' 
 
@@ -10,7 +11,11 @@ const DrawerWrapper = inject('system')(observer((props) =>{
     let {system} = props
     let primary = (color)=>{
         system.setPrimary(color.hex)
-        window.less.modifyVars({'@primary-color': color.hex})
+        modifyVars({'@primary-color': color.hex})
+    }
+    let dark = ()=>{
+        system.setDark()
+        modifyModel(system.dark)
     }
     return (
         <>
@@ -26,7 +31,7 @@ const DrawerWrapper = inject('system')(observer((props) =>{
                     <Row>
                         <div className={style.row}>
                             <div><Message id='model'/></div>
-                            <div><Switch defaultChecked onClick={()=>{ system.setDark()}} /></div>
+                            <div><Switch defaultChecked onClick={ dark } /></div>
                         </div>
                         <div className={style.row}>
                             <div><Message id='themes'/></div>
