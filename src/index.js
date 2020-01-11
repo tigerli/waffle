@@ -5,9 +5,6 @@ import App from '@pages/App'
 import { BrowserRouter as Router} from 'react-router-dom'
 import { Provider } from 'mobx-react'
 import stores from '@store'
-// if(document.readyState === 'loading'){
-//     location.reload() 
-// }
 
 ReactDOM.render(
     <Router>
@@ -16,7 +13,5 @@ ReactDOM.render(
         </Provider>
     </Router>
     , document.getElementById('root'))
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+
 serviceWorker.unregister()
