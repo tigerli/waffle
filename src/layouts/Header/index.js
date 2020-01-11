@@ -25,8 +25,8 @@ const HeaderWrapper = inject('system', 'user')(observer((props) =>{
         </div>
     )
     const messagePopover = (
-        <div className={style.userPopover}>
-            <div onClick={onClickLogout}><Icon type="logout" /><span>退出</span></div>
+        <div className={style.messagePopover}>
+            <div>ss</div>
         </div>
     )
     return (
@@ -42,12 +42,23 @@ const HeaderWrapper = inject('system', 'user')(observer((props) =>{
                             </div>
                             <div>
                                 <div>
-                                    <Icon type="search" className={style.icon} />
+                                    {/* <AutoComplete
+                                        className="certain-category-search"
+                                        dropdownClassName="certain-category-search-dropdown"
+                                        dropdownMatchSelectWidth={false}
+                                        dropdownStyle={{ width: 300 }}
+                                        size="large"
+                                        style={{ width: '100%' }}
+                                        placeholder="input here"
+                                        optionLabelProp="value"
+                                    >
+                                        <Input suffix={<Icon type="search" className={`${style.icon}`} />} />
+                                    </AutoComplete> */}
                                 </div>
                                 
                                 <div>
                                     <Badge dot>
-                                        <Popover placement="bottom" content={messagePopover}>
+                                        <Popover placement="bottomRight" content={messagePopover}>
                                             <Icon type="bell" className={style.icon} />
                                         </Popover>
                                     </Badge>

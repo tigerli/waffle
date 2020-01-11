@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import React from 'react'
 import { useLocation } from 'react-router-dom'
 import {  Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
@@ -6,19 +6,10 @@ import { inject, observer } from 'mobx-react'
 import { isEmpty } from '@library/utils/validate'
 import style from './index.module.less'
 import { FormattedMessage as Message } from 'react-intl' 
-
 const { SubMenu } = Menu
-
 const MenuWrapper = inject('system')(observer((props) =>{
     let {system, routers} = props
     let location = useLocation()
-    let [subItem, setSubItem] = useState()
-
-    useEffect(() => {
-        return () => {
-        }
-    }, [routers])
-    
     return (
         <>
             <div className={style.menu}>
@@ -28,7 +19,6 @@ const MenuWrapper = inject('system')(observer((props) =>{
                     mode={`${system.collapsed ? 'vertical' : 'inline'}`} 
                     theme={`${system.theme}`}
                     selectedKeys={[location.pathname]}
-                    onOpenChange={(openKeys)=>{ setSubItem(openKeys[1]) }}
                     forceSubMenuRender={true}
                 >
                     {   
