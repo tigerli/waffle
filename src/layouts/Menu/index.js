@@ -19,24 +19,15 @@ const MenuWrapper = inject('system')(observer((props) =>{
         }
     }, [routers])
     
-    useMemo(() => {
-        setSubItem(location.pathname.split('/').slice(0, 3).join('/'))
-    }, [location])
-
     return (
         <>
             <div className={style.menu}>
                 <div className={style.logo}>
                 </div>
-                <Menu 
-                    // defaultSelectedKeys={['1']}
-                    // defaultOpenKeys={['sub1']}
-                 
-                    // inlineCollapsed={false}
+                <Menu
                     mode={`${system.collapsed ? 'vertical' : 'inline'}`} 
                     theme={`${system.theme}`}
                     selectedKeys={[location.pathname]}
-                    openKeys={[subItem]}
                     onOpenChange={(openKeys)=>{ setSubItem(openKeys[1]) }}
                     forceSubMenuRender={true}
                 >

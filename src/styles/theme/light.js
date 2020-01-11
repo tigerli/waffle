@@ -2,7 +2,7 @@
 let lightTheme = {
     '@ant-prefix': "ant",
     '@iconfont-css-prefix': "anticon",
-    // '@primary-color': "@blue-6",
+    '@primary-color': "@blue-6",
     '@success-color': "@green-6",
     '@info-color': "@blue-6",
     '@warning-color': "@gold-6",
@@ -14,6 +14,7 @@ let lightTheme = {
     '@icon-color': "inherit",
     '@icon-color-hover': "fade(@black, 75%)",
     '@heading-color': "fade(#000, 85%)",
+
     '@text-color': "fade(@black, 65%)",
     '@text-color-secondary': "fade(@black, 45%)",
     '@text-color-inverse': "@white",
@@ -21,6 +22,7 @@ let lightTheme = {
     '@text-color-dark': "fade(@white, 85%)",
     '@text-color-secondary-dark': "fade(@white, 65%)",
     '@text-selection-bg': "@primary-color",
+
     '@border-color-base': "hsv(0, 0, 85%) ",
     '@border-color-split': "hsv(0, 0, 94%) ",
     '@border-color-inverse': "@white",
@@ -56,12 +58,15 @@ let lightTheme = {
     '@padding-md': "16px",
     '@padding-sm': "12px",
     '@padding-xs': "8px",
+
     '@disabled-color': "fade(#000, 25%)",
     '@disabled-bg': "@background-color-base",
     '@disabled-color-dark': "fade(#fff, 35%)",
+
     '@link-color': "@primary-color",
     '@link-decoration': "none",
     '@link-hover-decoration': "none",
+    
     '@outline-blur-size': "0px",
     '@outline-width': "2px",
     '@outline-color': "@primary-color",
@@ -69,6 +74,7 @@ let lightTheme = {
     '@background-color-base': "hsv(0, 0, 96%) ",
     '@item-active-bg': "@primary-1",
     '@item-hover-bg': "#f5f5f5",
+
     '@shadow-color': "rgba(0, 0, 0, 0.15)",
     '@shadow-color-inverse': "@component-background",
     '@box-shadow-base': "@shadow-2",
@@ -108,15 +114,18 @@ let lightTheme = {
     '@btn-circle-size-lg': "@btn-height-lg",
     '@btn-circle-size-sm': "@btn-height-sm",
     '@btn-group-border': "@primary-5",
+    
     '@checkbox-size': "16px",
     '@checkbox-color': "@primary-color",
     '@checkbox-check-color': "#fff",
     '@checkbox-border-width': "@border-width-base",
+
     '@dropdown-selected-color': "@primary-color",
     '@dropdown-vertical-padding': "5px",
     '@dropdown-line-height': "22px",
     '@dropdown-font-size': "@font-size-base",
     '@empty-font-size': "@font-size-base",
+
     '@radio-size': "16px",
     '@radio-dot-color': "@primary-color",
     '@radio-button-bg': "@btn-default-bg",
@@ -124,6 +133,7 @@ let lightTheme = {
     '@radio-button-color': "@btn-default-color",
     '@radio-button-hover-color': "@primary-5",
     '@radio-button-active-color': "@primary-7",
+
     '@screen-xs': "480px",
     '@screen-xs-min': "@screen-xs",
     '@screen-sm': "576px",
@@ -136,8 +146,10 @@ let lightTheme = {
     '@screen-xl-min': "@screen-xl",
     '@screen-xxl': "1600px",
     '@screen-xxl-min': "@screen-xxl",
+
     '@grid-columns': "24",
     '@grid-gutter-width': "0",
+
     '@zindex-table-fixed': "auto",
     '@zindex-affix': "10",
     '@zindex-back-top': "10",
@@ -152,18 +164,23 @@ let lightTheme = {
     '@zindex-dropdown': "1050",
     '@zindex-picker': "1050",
     '@zindex-tooltip': "1060",
+
     '@animation-duration-slow': "0.3s",
     '@animation-duration-base': "0.2s",
     '@animation-duration-fast': "0.1s",
+
     '@collapse-panel-border-radius': "@border-radius-base",
+
     '@label-required-color': "@highlight-color",
     '@label-color': "@heading-color",
+
     '@form-warning-input-bg': "@input-bg",
     '@form-item-margin-bottom': "24px",
     '@form-item-trailing-colon': "true",
     '@form-vertical-label-padding': "0 0 8px",
     '@form-vertical-label-margin': "0",
     '@form-error-input-bg': "@input-bg",
+
     '@input-height-base': "32px",
     '@input-height-lg': "40px",
     '@input-height-sm': "24px",
@@ -179,14 +196,17 @@ let lightTheme = {
     '@input-hover-border-color': "@primary-5",
     '@input-disabled-bg': "@disabled-bg",
     '@input-outline-offset': "0 0",
+
     '@select-border-color': "@border-color-base",
     '@select-item-selected-font-weight': "600px",
+
     '@tooltip-max-width': "250px",
     '@tooltip-color': "#fff",
     '@tooltip-bg': "rgba(0, 0, 0, 0.75)",
     '@tooltip-arrow-width': "5px",
     '@tooltip-distance': "@tooltip-arrow-width - 1px + 4px",
     '@tooltip-arrow-color': "@tooltip-bg",
+
     '@popover-bg': "@component-background",
     '@popover-color': "@text-color",
     '@popover-min-width': "177px",
@@ -194,14 +214,17 @@ let lightTheme = {
     '@popover-arrow-color': "@popover-bg",
     '@popover-arrow-outer-color': "@popover-bg",
     '@popover-distance': "@popover-arrow-width + 4px",
+
     '@modal-body-padding': "24px",
     '@modal-header-bg': "@component-background",
     '@modal-footer-bg': "transparent",
     '@modal-mask-bg': "fade(@black, 45%)",
+
     '@progress-default-color': "@processing-color",
     '@progress-remaining-color': "@background-color-base",
     '@progress-text-color': "@text-color",
     '@progress-radius': "100px",
+
     '@menu-inline-toplevel-item-height': "40px",
     '@menu-item-height': "40px",
     '@menu-collapsed-width': "80px",
@@ -218,9 +241,11 @@ let lightTheme = {
     '@menu-dark-submenu-bg': "#000c17",
     '@menu-dark-highlight-color': "#fff",
     '@menu-dark-item-active-bg': "@primary-color",
+
     '@spin-dot-size-sm': "14px",
     '@spin-dot-size': "20px",
     '@spin-dot-size-lg': "32px",
+
     '@table-header-bg': "@background-color-light",
     '@table-header-color': "@heading-color",
     '@table-header-sort-bg': "@background-color-base",
@@ -234,15 +259,19 @@ let lightTheme = {
     '@table-padding-vertical': "16px",
     '@table-padding-horizontal': "16px",
     '@table-border-radius-base': "@border-radius-base",
+
     '@tag-default-bg': "@background-color-light",
     '@tag-default-color': "@text-color",
     '@tag-font-size': "@font-size-sm",
+
     '@time-picker-panel-column-width': "56px",
     '@time-picker-panel-width': "@time-picker-panel-column-width * 3",
     '@time-picker-selected-bg': "@item-active-bg",
+
     '@carousel-dot-width': "16px",
     '@carousel-dot-height': "3px",
     '@carousel-dot-active-width': "24px",
+
     '@badge-color': "@error-color",
     '@badge-height': "20px",
     '@badge-dot-size': "6px",
@@ -250,8 +279,10 @@ let lightTheme = {
     '@badge-font-weight': "normal",
     '@badge-status-size': "6px",
     '@badge-text-color': "@component-background",
+
     '@rate-star-color': "@yellow-6",
     '@rate-star-bg': "@border-color-split",
+
     '@card-head-color': "@heading-color",
     '@card-head-background': "transparent",
     '@card-head-padding': "16px",
@@ -261,6 +292,7 @@ let lightTheme = {
     '@card-background': "@component-background",
     '@card-shadow': "0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),",
     '@card-radius': "@border-radius-base",
+
     '@comment-padding-base': "16px 0",
     '@comment-nest-indent': "44px",
     '@comment-font-size-base': "@font-size-base",
@@ -269,6 +301,7 @@ let lightTheme = {
     '@comment-author-time-color': "#ccc",
     '@comment-action-color': "@text-color-secondary",
     '@comment-action-hover-color': "#595959",
+
     '@tabs-card-head-background': "@background-color-light",
     '@tabs-card-height': "40px",
     '@tabs-card-active-color': "@primary-color",
@@ -289,9 +322,11 @@ let lightTheme = {
     '@tabs-active-color': "@primary-7",
     '@tabs-card-gutter': "2px",
     '@tabs-card-tab-active-border-top': "2px solid transparent",
+
     '@back-top-color': "#fff",
     '@back-top-bg': "@text-color-secondary",
     '@back-top-hover-bg': "@text-color",
+
     '@avatar-size-base': "32px",
     '@avatar-size-lg': "40px",
     '@avatar-size-sm': "24px",
@@ -301,19 +336,23 @@ let lightTheme = {
     '@avatar-bg': "#ccc",
     '@avatar-color': "#fff",
     '@avatar-border-radius': "@border-radius-base",
+
     '@switch-height': "22px",
     '@switch-sm-height': "16px",
     '@switch-sm-checked-margin-left': "-(@switch-sm-height - 3px)",
     '@switch-disabled-opacity': "0.4",
     '@switch-color': "@primary-color",
     '@switch-shadow-color': "fade(#00230b, 20%)",
+    
     '@pagination-item-size': "32px",
     '@pagination-item-size-sm': "24px",
     '@pagination-font-weight-active': "500",
     '@pagination-font-family': "Arial",
     '@pagination-item-bg-active': "@component-background",
+
     '@page-header-padding-horizontal': "24px",
     '@page-header-padding-vertical': "16px",
+
     '@breadcrumb-base-color': "@text-color-secondary",
     '@breadcrumb-last-item-color': "@text-color",
     '@breadcrumb-font-size': "@font-size-base",
@@ -322,6 +361,7 @@ let lightTheme = {
     '@breadcrumb-link-color-hover': "@primary-5",
     '@breadcrumb-separator-color': "@text-color-secondary",
     '@breadcrumb-separator-margin': "0 @padding-xs",
+
     '@slider-handle-border-width': "2px",
     '@slider-handle-shadow': "0",
     '@slider-margin': "14px 6px 10px",
@@ -338,10 +378,12 @@ let lightTheme = {
     '@slider-dot-border-color-active': "tint(@primary-color, 50%)",
     '@slider-disabled-color': "@disabled-color",
     '@slider-disabled-background-color': "@component-background",
+
     '@tree-title-height': "24px",
     '@tree-child-padding': "18px",
     '@tree-directory-selected-color': "#fff",
     '@tree-directory-selected-bg': "@primary-color",
+    
     '@collapse-header-padding': "12px 16px",
     '@collapse-header-padding-extra': "40px",
     '@collapse-header-bg': "@background-color-light",
@@ -353,6 +395,7 @@ let lightTheme = {
     '@transfer-list-height': "200px",
     '@message-notice-content-padding': "10px 16px",
     '@wave-animation-width': "6px",
+
     '@alert-success-border-color': "~`colorPalette('@{success-color}', 3) `",
     '@alert-success-bg-color': "~`colorPalette('@{success-color}', 1) `",
     '@alert-success-icon-color': "@success-color",
@@ -365,6 +408,7 @@ let lightTheme = {
     '@alert-error-border-color': "~`colorPalette('@{error-color}', 3) `",
     '@alert-error-bg-color': "~`colorPalette('@{error-color}', 1) `",
     '@alert-error-icon-color': "@error-color",
+
     '@list-header-background': "transparent",
     '@list-footer-background': "transparent",
     '@list-empty-text-padding': "@padding-md",
@@ -373,9 +417,11 @@ let lightTheme = {
     '@list-item-meta-avatar-margin-right': "@padding-md",
     '@list-item-meta-title-margin-bottom': "@padding-sm",
     '@statistic-title-font-size': "@font-size-base",
+
     '@statistic-content-font-size': "24px",
     '@statistic-unit-font-size': "16px",
     '@statistic-font-family': "@font-family",
+
     '@drawer-header-padding': "16px 24px",
     '@drawer-body-padding': "24px"
 }

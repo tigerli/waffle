@@ -6,7 +6,6 @@ import style from './index.module.less'
 import { inject, observer } from 'mobx-react'
 import MenuWrapper from '@layouts/Menu'
 import DrawerWrapper from '@layouts/Drawer'
-
 import ContentWrapper from '@layouts/Content'
 import HeaderWrapper from '@layouts/Header'
 import { getToken } from '@utils/auth'
@@ -16,7 +15,7 @@ import Routers from '@library/routes'
 const { Sider } = Layout
 
 let Index = inject('system')(observer((props) => {
-
+    let {system} = props
     // const isMobile = useMediaQuery({
     //     query: '(max-device-width: 991px)'
     // })
@@ -26,11 +25,11 @@ let Index = inject('system')(observer((props) => {
             history.push('/login')
         }
         return () => {}
-    }, [history])
+    })
     const isDesktop = useMediaQuery({
         query: '(min-device-width: 992px)'
     })
-    let {system} = props
+   
     return (
         <Layout className={`${style.app} ${system.dark?style.dark:''}`}>
             {isDesktop && 

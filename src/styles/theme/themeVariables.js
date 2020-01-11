@@ -8,7 +8,6 @@ module.exports =  [
     '@layout-sider-background',
     '@component-background',
     '@layout-header-background',
-    '@menu-dark-submenu-bg',
     '@input-bg',
     '@btn-default-bg',
     '@border-color-base',
@@ -34,5 +33,6 @@ module.exports =  [
     '@info-color',
     '@primary-color',
     '@highlight-color',
-    '@warning-color'
+    '@warning-color',
+    '@menu-dark-submenu-bg'
 ]

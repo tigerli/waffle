@@ -34,6 +34,7 @@ let darkTheme = {
     '@collapse-header-bg': '#262629',
     '@info-color': '#313133',
     '@highlight-color': colors.red[7],
-    '@warning-color': colors.gold[9]
+    '@warning-color': colors.gold[9],
+    '@menu-dark-highlight-color': "#fff"
 }
 export default darkTheme

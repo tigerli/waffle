@@ -44,9 +44,10 @@ const HeaderWrapper = inject('system', 'user')(observer((props) =>{
                                 <div>
                                     <Icon type="search" className={style.icon} />
                                 </div>
+                                
                                 <div>
                                     <Badge dot>
-                                        <Popover placement="bottomRight" content={messagePopover}>
+                                        <Popover placement="bottom" content={messagePopover}>
                                             <Icon type="bell" className={style.icon} />
                                         </Popover>
                                     </Badge>
@@ -59,6 +60,7 @@ const HeaderWrapper = inject('system', 'user')(observer((props) =>{
                                         </Badge>
                                     </Popover>
                                 </div>
+                                
                                 <div>
                                     <Icon type="align-left" className={style.icon} onClick={()=>{system.setDrawer()}} />
                                 </div>
