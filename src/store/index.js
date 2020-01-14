@@ -1,5 +1,5 @@
-import system from './system'
-import user from './user'
+import system from './models/system'
+import user from './models/user'
 
 export default {
     system,
