@@ -11,6 +11,7 @@ import Intl from '@components/Intl'
 
 let App = inject('system')(observer((props) => {
     let {system} = props
+
     //npm install --save rc-form-hooks
     // https://www.jianshu.com/p/fc59cb61f7cc
     useEffect(() => {

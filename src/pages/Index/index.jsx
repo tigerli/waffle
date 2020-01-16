@@ -11,11 +11,12 @@ import HeaderWrapper from '@layouts/Header'
 import { getToken } from '@utils/auth'
 import { isEmpty } from '@library/utils/validate'
 import Routers from '@library/routes'
-
+import { create } from 'mobx-persist'
+const hydrate = create()
 const { Sider } = Layout
 
-let Index = inject('system')(observer((props) => {
-    let {system} = props
+let Index = inject('system', 'themeStore')(observer((props) => {
+    let {system, themeStore} = props
     // const isMobile = useMediaQuery({
     //     query: '(max-device-width: 991px)'
     // })
@@ -24,6 +25,11 @@ let Index = inject('system')(observer((props) => {
         if(isEmpty(getToken())){
             history.push('/login')
         }
+        const initialState =  {
+            obj: { dark: false, theme: 'light', primary: '#2196f3' }
+        }
+        hydrate('themeStore', themeStore, initialState).then(() => console.log('themeStore hydrated'))
+        
         return () => {}
     })
     const isDesktop = useMediaQuery({
