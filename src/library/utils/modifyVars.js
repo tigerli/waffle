@@ -1,11 +1,12 @@
 import {Light, Dark} from '@styles/theme'
 
-export function modifyVars(model, primary){
+export async function modifyVars(model, primary) {
     //window.less.modifyVars(vars)
+    console.log(model, primary)
     if(model){
-        window.less.modifyVars(Dark(primary))
+        await window.less.modifyVars(Dark(primary))
     }else{
-        window.less.modifyVars(Light(primary))
+        await console.log(window.less.modifyVars(Light(primary)))
     }
 }
 

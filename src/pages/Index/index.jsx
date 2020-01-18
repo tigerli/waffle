@@ -12,7 +12,8 @@ import { getToken } from '@utils/auth'
 import { isEmpty } from '@library/utils/validate'
 import Routers from '@library/routes'
 import { create } from 'mobx-persist'
-const hydrate = create()
+import storage from '@library/utils/localStorage'
+import { modifyVars } from '@library/utils/modifyVars'
 const { Sider } = Layout
 
 let Index = inject('system', 'themeStore')(observer((props) => {
@@ -24,20 +25,21 @@ let Index = inject('system', 'themeStore')(observer((props) => {
     useEffect(() => {
         if(isEmpty(getToken())){
             history.push('/login')
+        }else{
+            const hydrate = create({})
+            // 初始化主题样式
+            hydrate('themeStore', themeStore).then(themeStore.init(storage.get('themeStore')||{dark: false, theme: 'light', primary: '#2196f3'}))
+            modifyVars(themeStore.dark, themeStore.primary)
         }
-        const initialState =  {
-            obj: { dark: false, theme: 'light', primary: '#2196f3' }
-        }
-        hydrate('themeStore', themeStore, initialState).then(() => console.log('themeStore hydrated'))
-        
+       
         return () => {}
-    })
+    }, [])
+    
     const isDesktop = useMediaQuery({
         query: '(min-device-width: 992px)'
     })
-   
     return (
-        <Layout className={`${style.app} ${system.dark?style.dark:''}`}>
+        <Layout className={`${style.app}`}>
             {isDesktop && 
                 <Sider collapsed={system.collapsed}>
                     <MenuWrapper routers={Routers}/>

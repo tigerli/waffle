@@ -29,7 +29,7 @@ function ContentWrapper(porps){
         return ()=>{
             setRouteItem([])
         }
-    }, [routers])
+    }, [])
     return(
         <>
             <Content>
