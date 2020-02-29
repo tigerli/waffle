@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
-import { Button, Form, Input, Icon, message, Spin } from 'antd'
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Input, message, Spin } from 'antd';
 import { useHistory} from 'react-router-dom'
 import style from './index.module.less'
 import { post } from '@http/index'
@@ -59,7 +62,7 @@ function FormBox(props) {
                         rules: [{ required: true, message: '用户名不能为空' }]
                     })(
                         <Input
-                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                             placeholder="Username"
                         />
                     )}
@@ -70,7 +73,7 @@ function FormBox(props) {
                         rules: [{ required: true, message: '密码不能为空' }]
                     })(
                         <Input.Password
-                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                             type="password"
                             placeholder="Password"
                         />
@@ -83,7 +86,7 @@ function FormBox(props) {
                 </Form.Item>
             </Form>
         </div>
-    )
+    );
 }
 const FormBoxWrapper = Form.create({ name: 'normal_login' })(inject('user')(observer(FormBox)))
 

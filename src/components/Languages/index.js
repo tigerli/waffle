@@ -1,11 +1,11 @@
 import React from 'react'
-import { Icon } from 'antd'
+import { createFromIconfontCN } from '@ant-design/icons';
 import { inject, observer } from 'mobx-react'
 import style from './index.module.less'
 const Languages = inject('system')(observer((props) =>{
     let {system} = props
     
-    const IconFont = Icon.createFromIconfontCN({
+    const IconFont = createFromIconfontCN({
         scriptUrl: '//at.alicdn.com/t/font_1585712_tvew52du1cn.js'
     })
 
